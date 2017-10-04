@@ -1,0 +1,14 @@
+Task 1:
+	(a) Syntaktisch korrekt sind 1. und 3.
+
+	(b) 
+		a = b = 5 	==> a = l-value; b = r-value; 5 = r-value
+
+		a + a++		==> a = l-value; a++ = r-value;
+
+	(c)	a = b = 5 	==> a = 5; b = 5;
+				b wurde 5 zugeordnet und a der Inhalt von b, somit auch 5.
+
+		a + a++		==> 2a+1	a = a+1 (undefiniert)
+				Das Resultat der Addition wird nirgendwo abgespeichert, aber a wird um eins inkrementiert.
+
