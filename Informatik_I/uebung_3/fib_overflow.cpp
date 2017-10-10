@@ -1,4 +1,4 @@
-#define MAX 4294967295
+#define MAX 4294967296
 #include <iostream>
 
 
@@ -20,17 +20,22 @@ int main(void){
 			cout << "---- 1\n";
 			count++;
 		}
-		if((i+j) > MAX){
-			overflow = true;
-			break;
-		}
-
 		if(j > i){
-			cout << "---- " << j << endl;
+			if(i > (MAX/2)){
+				overflow = true;
+				cout << "Loop broken in j > i\n";
+				break;
+			}
+			cout << "---- j: " << j << endl;
 			i = j + i;
 		}
 		else {
-			cout << "---- " << i << endl;
+			if(j > (MAX/2)){
+				overflow = true;
+				cout << "Loop broken in i > j\n";
+				break;
+			}
+			cout << "---- i: " << i << endl;
 			j = j + i;
 
 		}
