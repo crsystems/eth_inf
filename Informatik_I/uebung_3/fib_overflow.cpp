@@ -19,6 +19,8 @@ int main(void){
 		if(i == 1 && j == 1){
 			cout << "---- 1\n";
 			count++;
+			cout << "---- 1\n";
+			j = j + i;
 		}
 		if(j > i){
 			if(i > (MAX/2)){
@@ -28,8 +30,9 @@ int main(void){
 			}
 			cout << "---- j: " << j << endl;
 			i = j + i;
+			count++;
 		}
-		else {
+		else if(i > j){
 			if(j > (MAX/2)){
 				overflow = true;
 				cout << "Loop broken in i > j\n";
@@ -37,9 +40,11 @@ int main(void){
 			}
 			cout << "---- i: " << i << endl;
 			j = j + i;
-
+			count++;
+		} else {
+			overflow = true;
 		}
-		count++;
+	
 	}
 
 	cout << "Anzahl Zahlen: " << count << endl;

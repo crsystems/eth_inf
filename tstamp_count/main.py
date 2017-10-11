@@ -5,6 +5,14 @@ import os
 print("TimeStamp generating counting tool for slow lessons")
 print("Version: 0.01")
 
+event = input("Enter the name for the tracking file: ")
+
+decision = input("To start counting press s or c to abort: ")
+
+if(decision != "s"):
+    print("quitting...")
+    quit()
+
 num = 0
 start_tstamp = str(datetime.datetime.now())
 start_time = float(time.time())
@@ -23,7 +31,7 @@ while(character != 'c'):
     print("counted events: " + str(num))
     character = input("Press any key to count an event or c to end counting: ")
 
-session = open(str(start_time), "w+")
+session = open(event, "w+")
 session.write(str(start_time))
 session.write("\n")
 
@@ -38,4 +46,3 @@ session.close()
 
 print("Total counted entries: " + str(num))
 quit()
-
