@@ -18,9 +18,8 @@ int main(void){
 	while(i <= m && j <= m && overflow == false){
 		if(i == 1 && j == 1){
 			cout << "---- 1\n";
-			count++;
-			cout << "---- 1\n";
 			j = j + i;
+			count++;
 		}
 		if(j > i){
 			if(i > (MAX/2)){
@@ -30,7 +29,6 @@ int main(void){
 			}
 			cout << "---- j: " << j << endl;
 			i = j + i;
-			count++;
 		}
 		else if(i > j){
 			if(j > (MAX/2)){
@@ -40,10 +38,8 @@ int main(void){
 			}
 			cout << "---- i: " << i << endl;
 			j = j + i;
-			count++;
-		} else {
-			overflow = true;
 		}
+		count++;
 	
 	}
 
