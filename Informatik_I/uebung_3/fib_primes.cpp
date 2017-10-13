@@ -18,33 +18,24 @@ int main(void){
 		case 0: num = 0;
 			break;
 
-		case 1: cout << "0\n";
-			cout << "1\n";
-			cout << "1\n";
-			num = 3;
+		case 1:
+			num = 0;
 			break;
 		default: 
-			cout << "0\n";
-			cout << "1\n";
 			num = fibonacci(m);
 			break;
 	}
 
-	cout << num << " Fibonacci primes found." << endl;
+	cout << num << " Fibonacci prime(s) found." << endl;
 	return 0;
 }
 
 int fibonacci(unsigned int top){
-	unsigned int i = 1, j = 1;
-	unsigned int count = 3;
+	unsigned int i = 1, j = 2;
+	unsigned int count = 0;
 	bool overflow = false;
 	while(j <= top && i <= top && overflow == false){
-		if(i == 1 && j == 1){
-			cout << "1\n";
-			count++;
-			j = j + i;
-		}
-		else if(j > i){
+		if(j > i){
 			if(is_prime(j)){
 				cout << j << endl;
 				count++;
@@ -59,7 +50,7 @@ int fibonacci(unsigned int top){
 			j += i;
 		}
 	}
-	return count-1;
+	return count;
 }
 
 bool is_prime(int candidate){
