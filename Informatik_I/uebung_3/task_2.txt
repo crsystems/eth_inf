@@ -1,0 +1,11 @@
+Task 2:
+
+	1. a > b && (a-b) < 15
+
+	2. (a % 2 ) == 0 && a > 3
+
+	3. a <= (5*b) && a <= (5*c)
+
+	4. a == true || b == false && c == false
+
+	5. a != false || b != 0 
