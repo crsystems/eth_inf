@@ -1,15 +1,15 @@
-#define MAX 4294967295
 #include <iostream>
-
 
 using namespace std;
 
 int fibonacci(unsigned int top);
 
+bool is_prime(int candidate);
+
 int main(void){
 	unsigned int m = 0;
 	int num = 0;
-	cout << "Please enter the number of requested Fibonacci numbers: ";
+	cout << "Please enter the upper limit of the requested Fibonacci primes: ";
 	cin >> m;
 	cout << "\n";
 
@@ -19,7 +19,9 @@ int main(void){
 			break;
 
 		case 1: cout << "0\n";
-			num = 1;
+			cout << "1\n";
+			cout << "1\n";
+			num = 3;
 			break;
 		default: 
 			cout << "0\n";
@@ -28,7 +30,7 @@ int main(void){
 			break;
 	}
 
-	cout << num << " of " << m << endl;
+	cout << num << " Fibonacci primes found." << endl;
 	return 0;
 }
 
@@ -36,30 +38,40 @@ int fibonacci(unsigned int top){
 	unsigned int i = 1, j = 1;
 	unsigned int count = 3;
 	bool overflow = false;
-	while(count <= top && overflow == false){
+	while(j <= top && i <= top && overflow == false){
 		if(i == 1 && j == 1){
 			cout << "1\n";
+			count++;
 			j = j + i;
 		}
 		else if(j > i){
-			cout << j << endl;
-			if((MAX-j) <= i){
-				overflow = true;
+			if(is_prime(j)){
+				cout << j << endl;
 				count++;
-				break;
 			}
 			i += j;
 		}
 		else if(i > j){
-			cout << i << endl;
-			if((MAX-i) <= j){
-				overflow = true;
+			if(is_prime(i)){
+				cout << i << endl;
 				count++;
-				break;
 			}
 			j += i;
 		}
-		count++;
 	}
 	return count-1;
+}
+
+bool is_prime(int candidate){
+	bool result = true;
+	int d = 2;
+	while(d < candidate){
+		if(candidate % d == 0){
+			result = false;
+			break;
+		}
+		d++;
+	}
+
+	return result;
 }
