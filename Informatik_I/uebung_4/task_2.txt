@@ -1,0 +1,24 @@
+Task 2:
+
+a)
+	f -> [0;31]: f(x) = 2^x
+
+b)	The output of the this code snippet should be correct for inputs between 0 and 31
+
+c)	Case 1: n = 0
+		x is set to 1 and the if statement is false, as n = 0 and not n > 0.
+		x is correctly printed and the program exits.
+
+	Case 2: n = 1
+		The first if statement is true, so the do-while-loop is executed.
+		The second if statement is also true, which means, that the loop is exited.
+		Therefore x contains after one loop execution the correct value 2, which is printed.
+
+	Case 3: n = 31
+		The first statement is true, so the do-while-loop is executed.
+		The second if statement is true, after the 30th cycle of the loop, which means the
+		loop is about to be exited.
+		But as the multiplication by two is performed after the if statement, it is executed 
+		31 times. After that the loop exits and x holds the correct value 2^31 which is smaller
+		than (2^32)-1 and therefore fits into an unsigned integer. x is correctly printed and 
+		the program exits.
