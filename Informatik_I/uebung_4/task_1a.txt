@@ -13,7 +13,7 @@ if(n != 0) {
 std::cout << f << std::endl;
 
 
-//c) 	Edited Loop
+//c)
 
 unsigned int n, f;
 std::cin >> n;
@@ -21,4 +21,4 @@ std::cin >> n;
 for(f = 1; n > 0; --n){
 	f = f * n;
 }
-std::cout << f << std:endl;
+std::cout << f << std::endl;
