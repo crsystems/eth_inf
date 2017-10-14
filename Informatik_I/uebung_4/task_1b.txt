@@ -1,0 +1,30 @@
+//Task 1b
+
+//a)	This loop asks for two numbers, prints the sum and
+//	asks if a repetition is wanted.
+while(true) {
+  int i1, i2;
+  std::cin >> i1 >> i2;
+  std::cout << i1+i2 << "\n";
+
+  int again;
+  std::cout << "Again?(0/1)\n";
+  std::cin >> again;
+  if(!again)
+    break;
+}
+
+//b)	For this case a do-while loop would be a better choice,
+//	because that would execute the first time for sure
+//	and after that decide if it breaks or repeats the loop
+
+//c)
+int again = 0;
+do {
+	int i1, i2;
+	std::cin >> i1 >> i2;
+	std::cout << i1+i2 << "\n";
+
+	std::cout << "Again? (0/1)\n";
+	std::cin >> again;
+} while(again != 0);

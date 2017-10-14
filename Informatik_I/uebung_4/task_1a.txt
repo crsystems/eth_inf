@@ -1,0 +1,24 @@
+//Task 1a
+unsigned int n;
+std::cin >> n;
+
+unsigned int f = 1;
+if(n != 0) {
+  do {
+    f = f * n;		//a)	These two lines calculate
+    --n;		//	the faculty of the entered number
+  } while(n > 0);	//b) 	A for-loop would be more comprehensible, because
+ 			//	the decrementing of n would be declared in the loop statement 
+}
+std::cout << f << std::endl;
+
+
+//c) 	Edited Loop
+
+unsigned int n, f;
+std::cin >> n;
+
+for(f = 1; n > 0; --n){
+	f = f * n;
+}
+std::cout << f << std:endl;
