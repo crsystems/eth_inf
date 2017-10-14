@@ -1,0 +1,26 @@
+//Task 1c
+
+//a)	This loop calculates the remainder of z/d
+
+unsigned int z;
+unsigned int d;
+
+for(std::cin >> z >> d ; z >= d ; z = z-d);
+std::cout << z << std::endl; 
+
+//b)	In my opinion a while-loop would increase the readability of the loop, but the presented
+//	implementation is good to. In a while-loop, the actual process of subtracting d would be
+//	better visible
+
+//c)
+
+unsigned int z, d;
+
+std::cin >> z >> d;
+while(z >= d){
+	z -= d;
+}
+std::cout << z << std::endl;
+
+
+
