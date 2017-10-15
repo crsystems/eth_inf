@@ -8,6 +8,6 @@ Task 1:
 
 	4. true
 
-	5. true
+	5. false
 
 	6. true for a = 3, otherwise false
