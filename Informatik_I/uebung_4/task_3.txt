@@ -1,0 +1,10 @@
+Task 3:
+
+		Type:		Value:
+
+	1.  	boolean		false
+	2.	float		0.5
+	3.	float		13/12
+	4.	boolean		false
+	5.	integer		11
+	6.	integer		1
