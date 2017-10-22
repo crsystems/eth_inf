@@ -1,0 +1,7 @@
+Task 4b:
+
+For a fast aproximation of pi sum2 is the better choice, as it converges faster than sum1.
+Sum1, on the other hand, converges more accurately with increasing values for n.
+Sum2 is problematic for higher values of n, as it gets more and more difficult to store the values for numerator and denominator.
+
+For the most purposes sum2 will be accurate enough, but with sum1 and more time a higher accuracy can be achieved. 
