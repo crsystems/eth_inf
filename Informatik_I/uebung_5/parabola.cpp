@@ -6,8 +6,8 @@ int main(void){
 	std::cin >> x >> y;
 
 	x2 = x * x;
-	val += 1.3d * x;
-	val += 0.9d * x2;
+	val += (double) 1.3 * x;
+	val += (double) 0.9 * x2;
 
 	if(val == y){
 		std::cout << "yes" << std::endl;
