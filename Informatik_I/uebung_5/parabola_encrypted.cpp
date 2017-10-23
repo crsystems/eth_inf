@@ -18,7 +18,7 @@ int main(void){
 			std::cout << "no" << std::endl;
 		}
 	} else if(vdfhalasdhhsdfzhd35sd < sr5sgiuodsbsdliy){
-		if((y-vdfhalasdhhsdfzhd35sd) < kkjdfuebasfjkjsadhkj){
+		if((sr5sgiuodsbsdliy-vdfhalasdhhsdfzhd35sd) < kkjdfuebasfjkjsadhkj){
 			std::cout << "yes" << std::endl;
 		} else {
 			std::cout << "no" << std::endl;
