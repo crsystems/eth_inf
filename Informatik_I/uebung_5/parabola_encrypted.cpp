@@ -1,20 +1,6 @@
 #include <iostream>
-
-bool skdjkhflkjsdjjgsdafsfdkjhsdf (double hiiklhdksjfhkjjhjdsdf, double njkkldsfhksjdgsdjfhsdkjf){
-	if(hiiklhdksjfhkjjhjdsdf == njkkldsfhksjdgsdjfhsdkjf){
-		return true;
-	} else {
-		return false;
-	}
-}
-
-bool klasddjflkjgsdbdkfjksdnksdskj (double eretasdasjklsafjaslkf, double ldkgjlknasdkfkjasldjj){
-	if(eretasdasjklsafjaslkf > ldkgjlknasdkfkjasldjj){
-		return true;
-	} else {
-		return false;
-	}
-}
+#include "dlkjdflksjflkdjkfjdslkjsdf.cpp"
+#include "kjljsdfjkhkdsjfnfkjnkjsdbf.cpp"
 
 int main(void){
 
