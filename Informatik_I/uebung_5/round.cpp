@@ -4,8 +4,17 @@ using namespace std;
 
 int round(double x) {
 	int rounded = (int) x;
-	if((x - (double) rounded) >= (double) 0.5){
-		rounded++;
+
+	if(rounded < x){
+		if((x - (double) rounded) >= (double) 0.5){
+			rounded++;
+		}
+	}
+
+	if(rounded > x){
+		if(((double) rounded - x) >= (double) 0.5){
+			rounded--;
+		}
 	}
 	return rounded;
 }
