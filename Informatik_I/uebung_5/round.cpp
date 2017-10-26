@@ -9,9 +9,7 @@ int round(double x) {
 		if((x - (double) rounded) >= (double) 0.5){
 			rounded++;
 		}
-	}
-
-	if(rounded > x){
+	} else if(rounded > x){
 		if(((double) rounded - x) >= (double) 0.5){
 			rounded--;
 		}
