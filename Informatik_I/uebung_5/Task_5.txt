@@ -1,0 +1,33 @@
+Task 5:
+
+a)
+
+The problem was the missing "return false" when the input is uneven.
+
+//PRE: input has to be an unsigned (positive) integer.
+//POST: returns true for event integers and 0, false for uneven numbers
+//behaviour for negative inputs is undefined
+bool is_even(unsigned int i){
+     if(i % 2 == 0){
+          return true;
+     } else {
+          return false;
+     }
+}
+
+b)
+
+The problem of this function was the undefined return value if the input is zero.
+
+//PRE: input has to be a double, unequal to zero
+//POST: returns the inverted input or -1 if the input was zero.
+double invert(double x){
+       double result;
+       if(x != 0){
+            result = 1 / x;
+       } else {
+            result = -1;
+       }
+
+       return result;
+}
