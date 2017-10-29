@@ -2,6 +2,8 @@
 
 using namespace std;
 
+//PRE: input has to be a double value.
+//POST: returns the arithmetically rounded value of the input
 int round(double x) {
 	int rounded = (int) x;
 
