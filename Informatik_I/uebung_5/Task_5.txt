@@ -20,13 +20,13 @@ b)
 The problem of this function was the undefined return value if the input is zero.
 
 //PRE: input has to be a double, unequal to zero
-//POST: returns the inverted input or -1 if the input was zero.
+//POST: returns the inverted input or 0 if the input was zero.
 double invert(double x){
        double result;
        if(x != 0){
             result = 1 / x;
        } else {
-            result = -1;
+            result = 0;
        }
 
        return result;
