@@ -94,7 +94,7 @@ bool is_valid_date(unsigned int day, unsigned int month, unsigned int year){
     if(year < 1900){
       return false;
     }
-    if(month > 12){
+    if(month > 12 || month < 1){
       return false;
     }
     if(day > 31 || day < 1){
@@ -109,7 +109,7 @@ bool is_valid_date(unsigned int day, unsigned int month, unsigned int year){
     if(month != 2 && ((month < 8 && month % 2 == 0 && day > 30) || (month >= 8 && month % 2 != 0 && day > 30))){
       return false;
     }
-    if(month != 2 && ((month <8 && month % 2 != 0 && day > 31) || (month >= 8 && month % 2 == 0 && day > 31))){
+    if(month != 2 && ((month < 8 && month % 2 != 0 && day > 31) || (month >= 8 && month % 2 == 0 && day > 31))){
       return false;
     }
     return true;
