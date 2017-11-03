@@ -1,3 +1,6 @@
+//Author: Nicole Narr
+//Owner: Nicole Narr 
+
 #include <iostream>
 
 // PRE:  a year greater or equal than 1900
