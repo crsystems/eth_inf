@@ -15,7 +15,7 @@ void encode(){
 	while(cur_byte != -1){
 		while(cur_byte == last_byte){
 			if(cur_byte > 255 || cur_byte < 0){
-				cout << "\rerror";
+				cout << "error";
 			}
 			if(count == 255){
 				cout << count << " " << cur_byte << " ";
@@ -48,13 +48,13 @@ void decode(){
 			cout << "-1";
 			break;
 		}else if(count < 0 || count > 255){
-			cout << "\rerror";
+			cout << "error";
 			break;
 		}
 		
 		cin >> byte;
 		if(byte < 0 || byte > 255){
-			cout << "\rerror";
+			cout << "error";
 			break;
 		}else{
 			while(counter < count){
