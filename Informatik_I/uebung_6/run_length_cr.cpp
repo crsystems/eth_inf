@@ -16,6 +16,7 @@ void encode(){
 		while(cur_byte == last_byte){
 			if(cur_byte > 255 || cur_byte < 0){
 				cout << "error";
+				return;
 			}
 			if(count == 255){
 				cout << count << " " << cur_byte << " ";
