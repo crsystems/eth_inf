@@ -2,6 +2,9 @@
 
 using namespace std;
 
+
+//PRE: N/A
+//POST: reads a newline separated bytestring from stdin and outputs the runlength encoded string
 void encode(){
 	int cur_byte, last_byte, count = 0;
 
@@ -32,6 +35,8 @@ void encode(){
 
 }
 
+//PRE: N/A
+//POST: reads a newline separated, runlength encoded bytestring and outputs the decoded bytestring
 void decode(){
 	int byte = 0, count, counter = 0;
 
@@ -40,6 +45,7 @@ void decode(){
 	while(byte != -1){
 		cin >> count;
 	        if(count == -1){
+			cout << "-1";
 			break;
 		}else if(count < 0 || count > 255){
 			cout << "\rerror";
@@ -61,7 +67,8 @@ void decode(){
 	return;
 }
 
-
+//PRE: input of type integer with meanings: 0 for encoding and 1 for decoding
+//POST: calls the appropriate method or outputs error
 void decide(int in){
 	switch(in){
 		case 0: encode();
