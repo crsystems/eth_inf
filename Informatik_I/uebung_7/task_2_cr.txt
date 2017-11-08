@@ -1,0 +1,17 @@
+Task 2:
+
+a) int array[4] = {1, 2};
+   valid [x] / invalid [ ]. If invalid, reason:
+   array contains: 1, 2, 0, 0
+
+b) float value[];
+   valid [ ] / invalid [x]. If invalid, reason: no dimension specified
+   value contains:
+
+c) double hello[] = {2.3, 5.3, 7.9};
+   valid [x] / invalid [ ]. If invalid, reason:
+   hello contains: 2.3, 5.3, 7.9
+
+d) unsigned int buffer[3] = {42, 507, 12, 2030};
+   valid [ ] / invalid [x]. If invalid, reason: dimension to small for initializers
+   buffer contains:

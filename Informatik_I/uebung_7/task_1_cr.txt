@@ -1,0 +1,15 @@
+Task 1:
+
+              semantically valid                reason                valid during runtime                reason                POST condition
+
+      a)              yes 	                                                  yes                                               Returns the incremented
+                                                                                                                                input integer
+      b)              yes                                                     yes                                               Returns the incremented
+                                                                                                                                constant input integer
+      c)              yes                                                     yes                                               Increments its input and
+                                                                                                                                and returns the incremented input
+      d)              yes                                                     no                  returns a reference
+                                                                                                  to a locally declared
+                                                                                                  variable
+      e)              yes                                                     yes                                               returns a reference on the incremented
+                                                                                                                                input reference
