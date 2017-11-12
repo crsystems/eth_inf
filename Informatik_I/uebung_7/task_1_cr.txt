@@ -1,15 +1,24 @@
-Task 1:
+a) int foo(int i);
+ i)   semantically    valid [x] / invalid [ ]. If invalid, reason:
+ ii)  during runtime  valid [x] / invalid [ ]. If invalid, reason:
+ iii) post condition: returns the incremented value of its input.
 
-              semantically valid                reason                valid during runtime                reason                POST condition
+b) int foo(const int i);
+ i)   semantically    valid [ ] / invalid [x]. If invalid, reason: read-only parameters can't be incremented
+ ii)  during runtime  valid [ ] / invalid [x]. If invalid, reason:
+ iii) post condition:
 
-      a)              yes 	                                                  yes                                               Returns the incremented
-                                                                                                                                input integer
-      b)              yes                                                     yes                                               Returns the incremented
-                                                                                                                                constant input integer
-      c)              yes                                                     yes                                               Increments its input and
-                                                                                                                                and returns the incremented input
-      d)              yes                                                     no                  returns a reference
-                                                                                                  to a locally declared
-                                                                                                  variable
-      e)              yes                                                     yes                                               returns a reference on the incremented
-                                                                                                                                input reference
+c) int foo(int& i);
+ i)   semantically    valid [x] / invalid [ ]. If invalid, reason:
+ ii)  during runtime  valid [x] / invalid [ ]. If invalid, reason:
+ iii) post condition: returns the incremented value the input is referencing.
+
+d) int& foo(int i);
+ i)   semantically    valid [x] / invalid [ ]. If invalid, reason:
+ ii)  during runtime  valid [ ] / invalid [x]. If invalid, reason: referencing memory of the foo function will not work, as this memory region will be invalid after returning from foo.
+ iii) post condition:
+
+e) const int& foo(int& i);
+ i)   semantically    valid [x] / invalid [ ]. If invalid, reason:
+ ii)  during runtime  valid [x] / invalid [ ]. If invalid, reason:
+ iii) post condition: increments the value referenced by the input and returns a constant reference on the incremented value.
