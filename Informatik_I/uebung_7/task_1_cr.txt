@@ -4,7 +4,7 @@ a) int foo(int i);
  iii) post condition: returns the incremented value of its input.
 
 b) int foo(const int i);
- i)   semantically    valid [ ] / invalid [x]. If invalid, reason: read-only parameters can't be incremented
+ i)   semantically    valid [ ] / invalid [x]. If invalid, reason: read-only parameters can't be incremented.
  ii)  during runtime  valid [ ] / invalid [x]. If invalid, reason:
  iii) post condition:
 
