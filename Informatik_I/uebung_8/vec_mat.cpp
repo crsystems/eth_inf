@@ -2,6 +2,8 @@
 
 using namespace std;
 
+//PRE: A writable 3x3 int array
+//POST: Fills the first column with the values provided via stdin
 void read_vector(int storage[3][3]){
 	for(int i = 0; i < 3; i++){
 		cin >> storage[0][i];
@@ -9,6 +11,8 @@ void read_vector(int storage[3][3]){
 	return;
 }
 
+//PRE: A writeable 3x3 int array
+//POST: Fills the array column-wise with the values provided via stdin
 void read_matrix(int storage[3][3]){
 	for(int i = 0; i < 3; i++){
 		for(int k = 0; k < 3; k++){
@@ -18,6 +22,9 @@ void read_matrix(int storage[3][3]){
 	return;
 }
 
+//PRE: Two writeable 3x3 int arrays
+//POST: Querys for the input types of the two operands, reads the values into the provided arrays
+//	and returns values from -1 for error to 2 for matrix matrix product
 int input(int operand_a[3][3],  int operand_b[3][3]){
 	char type_a, type_b;
 	cin >> type_a >> type_b;
@@ -52,6 +59,8 @@ int input(int operand_a[3][3],  int operand_b[3][3]){
 	}
 }
 
+//PRE: The 3x3 int array to be initiated
+//POST: Fills the array with zeros
 void init(int arr[3][3]){
 	for(int i = 0; i < 3; i++){
 		for(int k = 0; k < 3; k++){
@@ -61,6 +70,8 @@ void init(int arr[3][3]){
 	return;
 }
 
+//PRE: Two 3x3 operand int arrays with the column vector in the first column and a 3x3, preferably initiated, output int array 
+//POST: Stores the calculated cross product in the first column of the result array
 void v_v_p(int in_left[3][3], int in_right[3][3], int out[3][3]){
 	out[0][0] = (in_left[0][1]*in_right[0][2]) - (in_left[0][2]*in_right[0][1]); 
 	out[0][1] = (in_left[0][2]*in_right[0][0]) - (in_left[0][0]*in_right[0][2]);
@@ -68,6 +79,8 @@ void v_v_p(int in_left[3][3], int in_right[3][3], int out[3][3]){
 	return;
 }
 
+//PRE: Two 3x3 operand int arrays with the column vector in the first column and a 3x3, preferably initiated, output int array
+//POST: Stores the calculated matrix vector product in the first column of the result array
 void m_v_p(int in_left[3][3], int in_right[3][3], int out[3][3]){
 	for(int i = 0; i < 3; i++){
 		int val = 0;
@@ -79,6 +92,8 @@ void m_v_p(int in_left[3][3], int in_right[3][3], int out[3][3]){
 	return;
 }
 
+//PRE: Two 3x3 operand int arrays and a 3x3, preferably initiated, output int array
+//POST: Stores the calculated matrix matrix product in the output array
 void m_m_p(int in_left[3][3], int in_right[3][3], int out[3][3]){
 	for(int i = 0; i < 3; i++){
 		for(int k = 0; k < 3; k++){
@@ -92,6 +107,8 @@ void m_m_p(int in_left[3][3], int in_right[3][3], int out[3][3]){
 	return;
 }
 
+//PRE: The int value for the kind of result to be displayed and the result 3x3 int array
+//POST: N/A
 void output(int action, int result[3][3]){
 	switch(action){
 		case 0:

@@ -13,15 +13,15 @@ int main(void){
 
 	char bit;
 	int byte = 0;
-	for(int i = 0; i < 8; i++){
-		file >> bit;
-		cout << bit;
-		if(bit == '1'){
-			byte += pow(2, (7-i));
+	while(file.get(bit)){
+		byte = 0;
+		for(int i = 0; i < 8; i++){
+			if(bit == '1'){
+				byte += pow(2, (7-i));
+			}
 		}
-		cout << endl << byte << endl;
+		cout << (char) byte;
 	}
-	cout << (char) byte;
 
 	file.close();
 
