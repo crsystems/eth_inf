@@ -92,6 +92,22 @@ void m_m_p(int in_left[3][3], int in_right[3][3], int out[3][3]){
 	return;
 }
 
+void output(int action, int result[3][3]){
+	switch(action){
+		case 0:
+		case 1:	for(int i = 0; i < 3; i++){
+				cout << result[0][i] << endl;
+			}
+			break;
+
+		case 2: for(int i = 0; i < 3; i++){
+				cout << result[0][i] << " " << result[1][i] << " " << result[2][i] << endl;
+			}
+			break;
+	}
+	return;
+}
+
 int main(void){
 
 	int op_a[3][3], op_b[3][3], res[3][3];
@@ -102,24 +118,20 @@ int main(void){
 
 	switch(input(op_a, op_b)){
 		case 0: v_v_p(op_a, op_b, res);
+			output(0, res);
 			break;
 
 		case 1: m_v_p(op_a, op_b, res);
+			output(1, res);
 			break;
 
 		case 2: m_m_p(op_a, op_b, res);
+			output(2, res);
 			break;
 
 		default: cout << "unsupported action.\n Quitting due to critical errors\n";
 			 return 0;
-	}
-
-	
-	cout << "\n\n\n" << res[0][0] << " " << res[1][0] << " " << res[2][0] << endl;
-	cout << res[0][1] << " " << res[1][1] << " " << res[2][1] << endl;
-	cout << res[0][2] << " " << res[1][2] << " " << res[2][2] << endl;	
-
-
+	}	
 
 	return 0;
 }
