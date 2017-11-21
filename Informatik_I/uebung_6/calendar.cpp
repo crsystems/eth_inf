@@ -1,5 +1,5 @@
 //Author: Nicole Narr
-//Owner: Nicole Narr 
+//Owner: Nicole Narr
 
 #include <iostream>
 
@@ -38,7 +38,7 @@ unsigned int count_days_in_month(unsigned int month, unsigned int year){
         case 6:
         case 9:
         case 11: return 30; break;
-        
+
     }
 }
 
@@ -61,7 +61,7 @@ bool is_valid_date(unsigned int day, unsigned int month, unsigned int year){
 // POST: returns the number of days between January 1, 1900 and this date
 unsigned int count_days(unsigned int day, unsigned int month, unsigned int year){
     unsigned int daycount=0;
-    
+
     for(unsigned int i=1900; i<year;i++){
         daycount=daycount+count_days_in_year(i);
     }
@@ -71,7 +71,7 @@ unsigned int count_days(unsigned int day, unsigned int month, unsigned int year)
     for(unsigned int i=1;i<day;i++){
         daycount++;
     }
-    
+
     return daycount;
 }
 
