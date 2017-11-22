@@ -8,14 +8,12 @@ bool lexicographic_compare(It str1_b, It str1_e, It str2_b, It str2_e){
     
     for(int i=0; i<(str1_e-str1_b)||i<(str2_e-str2_b); i++){
         
-        char value1=*(str1_b+i);
-        char value2=*(str2_b+i);
-        if (value1<value2){
+        if (*(str1_b+i)<*(str2_b+i)){
             
             return true;
             break;
             
-        }else if(value1>value2){
+        }else if(*(str1_b+i)>*(str2_b+i)){
             
             return false;
             break;
