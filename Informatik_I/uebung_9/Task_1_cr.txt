@@ -18,7 +18,7 @@ c)
 // PRE: a <= b are valid pointers to elements of the same array.
 // POST: Returns the number of array elements in between those pointers (not including b).
 int num_elem(const int* a, const int* b) {
-  return b - a;
+  return (b - a)-1;
 }
 
 d)
