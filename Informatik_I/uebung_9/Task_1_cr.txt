@@ -27,10 +27,9 @@ d)
 // POST: Returns the pointer to first array element that is equal to ch, otherwise return 0.
 const char* first_char(const char* str, const char ch) {
     // hint: use natural iteration over str
-    int i = 0;
-    while(str[i] != '\0'){
-      if(str[i] == ch){
-        return str + i;
+    for(int i = 0; str[i] != '\0'; i++){
+      if(str[i] ==  ch){
+        return str+i;
       }
     }
     return '\0';
