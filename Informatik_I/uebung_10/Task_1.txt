@@ -1,0 +1,20 @@
+Task_1:
+
+	a) function: bool f(const int n):
+
+	    i) PRE: A const integer greater or equal zero.  
+	       POST: Returns true if the given integer is uneven and false if the the given integer is eve or zero.
+
+	   ii) As the provided integer is greater or equal zero, decrementing will result in setting it to zero after a number of iterations. And if the integer is zero, the function breaks.
+
+	  iii) call_f(n) = n+1
+
+
+	b) function: void g(const int n):
+
+	    i) PRE: A constant integer grater or equal zero. 
+	       POST: Prints 2^n times a star.
+	
+	   ii) Again, as the provided integer is greater or equal zero, decrementing will result in setting it to zero after a number of iterations. And reaching zero, or in higher levels reaching the end of the function will terminate it.
+
+	  iii) calls_g(n) = 2^(n+1) - 1
