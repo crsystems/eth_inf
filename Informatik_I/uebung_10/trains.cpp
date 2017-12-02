@@ -37,10 +37,10 @@ int main(void){
 }
 
 bool train(istream &in){
-	if(open(in) && !compositions(in)){
+	if(compositions(in)){
 		return true;
-	}else if(!open(in) && compositions(in)){
-		return true;
+	} else if(open(in) && lookahead(in) == 0){
+	    return true;
 	}
 	return false;
 }
@@ -67,43 +67,40 @@ bool consume(istream &in, char c){
 }
 
 bool open(istream &in){
-	if(loco(in)){
-		if(cars(in)){
-			return true;
-		}
+	if(loco(in) && cars(in)){
+		return true;
+	} else {
+	    return false;
 	}
-	return false;
 }
 
 bool loco(istream &in){
-	if(lookahead(in) != '*'){
-		return false;
+	if(consume(in, '*')){
+	    loco(in);
+	    return true;
+	} else {
+	    return false;
 	}
-	while(consume(in, '*')){
-		loco(in);
-	}
-	return true;
 }
 
 bool cars(istream &in){
-	if(lookahead(in) != '-'){
-		return false;
-	}
-	while(consume(in, '-')){
+	if(consume(in, '-')){
 		cars(in);
+		return true;
+	} else {
+	    return false;
 	}
-	return true;
 }
 
 bool compositions(istream &in){
 	if(composition(in)){
-		if(in.eof() != true){
-			while(composition(in)){}
-			if(in.eof() != true){
-		    		return false;
-			}
+		if(lookahead(in) == 0){
+		    return true;
+		}else if(compositions(in)){
+		    return true;
+		} else {
+		    return false;
 		}
-		return true;
 	}else{
 		return false;
 	}
