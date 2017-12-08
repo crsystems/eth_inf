@@ -1,0 +1,16 @@
+a) struct int_7 {
+    int value; //INV: [0; 6] 
+};
+
+b) 
+// POST : return value is the sum of a and b
+int_7 operator+ (int_7 a, int_7 b) {
+	return (a.value+b.value)%7;
+}
+
+c) 
+
+// POST : return value is the difference of a and b
+int_7 operator- (int_7 a, int_7 b) {
+	return 6-b.value;
+}
