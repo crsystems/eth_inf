@@ -1,3 +1,5 @@
+// UNCOMMENT THE NEXT LINE TO ENABLE THE TESTS WITHOUT SUBMITTING
+//#include "tests.h"
 #include <iostream>
 #include <string>
 
@@ -8,16 +10,47 @@ struct Complex{
 	double b;
 };
 
-istream& operator>> (istream &in, Complex &comp){
+/*istream& operator>> (istream &in, Complex &comp){
 	char dummy;
+	in >> dummy;
 	while(dummy != '['){
 	    in >> dummy;
 	}
 	in >> comp.a;
 	in >> dummy;
 	in >> comp.b;
+	in >> dummy;
+	return in;
+}*/
+
+istream& operator>> (istream &in, Complex &comp){
+	char dummy;
+	in >> dummy;
+	while(dummy != '['){
+	    in >> dummy;
+	}
+	
+	in >> comp.a;
+	
+	if(in.peek() != ','){
+	    in.setstate(std::ios::failbit);
+	    return in;
+	}else{
+	    in >> dummy;
+	}
+	
+	in >> comp.b;
+	
+	if(in.peek() != ']'){
+	    in.setstate(std::ios::failbit);
+	    return in;
+	}else{
+	    in >> dummy;
+	}
 	return in;
 }
+
+
 
 ostream& operator<< (ostream &out, Complex comp){
 	return out << "[" << comp.a << "," << comp.b << "]";
