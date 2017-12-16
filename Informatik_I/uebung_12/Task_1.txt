@@ -1,0 +1,25 @@
+a)
+i) str.a * str.b
+     Type: double
+     Value: 1.5
+ii) str.b == arr[1]
+     Type: double
+     Value: 1
+iii) str.a * str.b / str.c
+     Type: double
+     Value: 0.5
+iv)  arr[str.a] / str.c
+     Type: float 
+     Value: 0.5
+v)   *a / 2 - str.b
+     Type: double
+     Value: -1
+
+b) 
+  // PRE:  a ASCII character as argument
+  // POST: the array element at the index that the character equals in the ASCII table is incremented
+  void add (const char c);
+  
+  // PRE:  a ASCII character as argument
+  // POST: the array element at the index that the character equals in the ASCII table is returned 
+  int get (const char c) const;
