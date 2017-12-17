@@ -6,15 +6,17 @@ class Averager {
 
 	private:
 		double average = 0;
-		int size = 1;
-		double *vals = new double;
+		int size = 0;
+		double *vals;
 
 		void resize(void){
 			double *new_values = new double [size+1];
-			for(int i = 0; i < size; i++){
-				new_values[i] = vals[i];
+			if(size != 0){
+			    for(int i = 0; i < size; i++){
+				    new_values[i] = vals[i];
+			    }
+			    delete vals;
 			}
-			delete vals;
 			vals = new_values;
 			size++;
 			return;
@@ -26,7 +28,7 @@ class Averager {
 				sum += vals[i];
 			}
 
-			average = sum / (size-1);
+			average = sum / size;
 			return;
 		}
 
@@ -36,7 +38,9 @@ class Averager {
 	public:
 		Averager(){}
 		~Averager(){
-			delete vals;
+		    if(size > 0){
+			    delete vals;
+		    }
 		}
 
 		void add_value(double value){
@@ -53,8 +57,8 @@ class Averager {
 		void reset(void){
 			average = 0;
 			delete vals;
-			vals = new double;
-			size = 1;
+			vals = 0;
+			size = 0;
 			return;
 		}
 };
