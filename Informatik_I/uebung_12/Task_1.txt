@@ -3,17 +3,17 @@ i) str.a * str.b
      Type: double
      Value: 1.5
 ii) str.b == arr[1]
-     Type: double
-     Value: 1
+     Type: Bool
+     Value: false
 iii) str.a * str.b / str.c
      Type: double
-     Value: 0.5
+     Value: 0.75
 iv)  arr[str.a] / str.c
-     Type: float 
-     Value: 0.5
+     Type: int 
+     Value: 0
 v)   *a / 2 - str.b
      Type: double
-     Value: -1
+     Value: -1.5
 
 b) 
   // PRE:  a ASCII character as argument
