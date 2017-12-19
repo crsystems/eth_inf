@@ -30,9 +30,12 @@ private:
 
 // TODO: IMPLEMENT TRIANGLE CLASS
 
-class Triangle : Shape {
+class Triangle : public Shape {
 	public:
-		Triangle(bool p, double w, double h) : paintable(p), width(w), height(h) {}
+		Triangle(bool p, double w, double h) : Shape(p) {
+			width = w;
+			height = h;
+		}
 
 		double get_area() const {
 			double area = (width * height) / 2;
@@ -43,14 +46,17 @@ class Triangle : Shape {
 		double width = 0;
 		double height = 0;
 
-}
+};
 
 
 // TODO: IMPLEMENT RECTANGLE CLASS
 
-class Rectangle : Shape {
+class Rectangle : public Shape {
 	public:
-		Rectangle(bool p, double w, double h) : paintable(p), width(w), height(h) {}
+		Rectangle(bool p, double w, double h) : Shape(p) {
+			width = w;
+			height = h;
+		}
 
 		double get_area() const {
 			double area = width * height;
@@ -60,13 +66,15 @@ class Rectangle : Shape {
 	private:
 		double width = 0;
 		double height = 0;
-}
+};
 
 // TODO: IMPLEMENT CIRCLE CLASS
 
-class Circle : Shape {
+class Circle : public Shape {
 	public:
-		Circle(bool p, double radius) : paintable(p), radius(r) {}
+		Circle(bool p, double r) : Shape(p) {
+			radius = r;
+		}
 
 		double get_area() const {
 			double area = radius * radius * pi;
@@ -76,7 +84,7 @@ class Circle : Shape {
 	private:
 		double radius = 0;
 		double pi = atan(1)*4;
-}
+};
 
 /////////////////////////////////////////////////////////////////////////////
 // TEST MAIN FUNCTION (MODIFY WHERE STATED)
