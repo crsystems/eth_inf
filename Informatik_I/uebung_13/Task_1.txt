@@ -1,0 +1,10 @@
+function | call | is polymorphic ?
+f        | 1    | yes [ ] / no [x]
+f        | 2    | yes [ ] / no [x]
+f        | 3    | yes [ ] / no [x]
+g        | 1    | yes [ ] / no [x]
+g        | 2    | yes [ ] / no [x]
+g        | 3    | yes [x] / no [ ]
+h        | 1    | yes [ ] / no [x]
+h        | 2    | yes [ ] / no [x]
+h        | 3    | yes [ ] / no [x]
