@@ -2,7 +2,24 @@ Task 1
 
 
 1.	Nein, kann man nicht, da b in der Definition der Funktion zur Fallunterscheidung genutzt wird und daher nicht
-	als beliebig angesehen werden kann. Dadurch wäre es unmöglich die Korrektheit der Funktion für alle drei unterscheidungen
+	als beliebig angesehen werden kann. Dadurch wäre es unmöglich die Korrektheit der Funktion für alle drei Unterscheidungen
 	zu beweisen.
 
-2.	
+2.	Fall 1, b=1, a element N+: Trivial, da schlicht a zurückgegeben wird.
+	Fall 2, b mod 2 = 0, a element N+: Für b > 2 gilt: Wenn (b / 2) mod 2 = 0 wird zurück zu Fall 2 gesprungen.
+							   Wenn (b / 2) mod 2 != 0 wird zu Fall 3 geprungen.
+					   Für b = 2 gilt: (b / 2) = 1. Somit wird die Iteration danach in Fall 1 springen 
+					   und damit terminieren.
+	Fall 3, b mod 2 != 0, a element N+: Für b > 2 gilt: Wenn ((b-1) / 2) mod 2 = 0 wird zu Fall 2 gesprungen.
+							    Wenn ((b-1) / 2) mod 2 != 0 wird zurück zu Fall 3 gesprungen.
+
+	Für Fall 3 springt immer zurück zu Fall 2, wenn b gerade wird, was zwangsläufig irgendwann passiert, wenn b um eins
+	reduziert und halbiert wird. Fall 2 springt zurück zu Fall 1, wenn b = 2, was auch zwangsläufig passiert, wenn b halbiert wird.
+	In jedem Fall wird Fall 1 erreicht, weswegen die Funktion terminiert.
+
+3.	Der Korrektheitsbeweis muss so verändert werden, dass der Induktionsstart mit Fall 3 verankert wird. Der Induktionsschritt
+	wird dann auch über Fall 2 und 3 gemacht. Fall 1 sorgt dann nur dafür, dass nach b = 1 gestoppt wird. Denn Fall 3 ist für
+	b = 1 mit dem neuen Fall 1 praktisch a + 0.
+
+	Der Terminierungsbeweis müsste nur so verändert werden, dass gezeigt wird, dass b irgendwann gleich 1 wird.
+

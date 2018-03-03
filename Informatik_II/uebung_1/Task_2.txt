@@ -1,0 +1,10 @@
+Task 2: Laufzeitkomplexität
+
+1. Die Funktionen rufen sich x mal selbst auf.
+
+2. gerade: b+1 mal	verdopple: a+1 mal	halbiere: b+1 mal
+
+3. num(x, y)  := (x+1) + 2(y+1)
+
+Reihe der Aufrufe := num(a,b) + num(2a, b/2) + num(4a,b/4)... = sum{k = 0, n = log2(b)+1} (num((2^k)a, (1/2^k)b)
+==> Anzahl der Aufrufe: 4ab + 2b - a + 3*log2(b) +3  
