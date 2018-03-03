@@ -1,0 +1,8 @@
+Task 1
+
+
+1.	Nein, kann man nicht, da b in der Definition der Funktion zur Fallunterscheidung genutzt wird und daher nicht
+	als beliebig angesehen werden kann. Dadurch wäre es unmöglich die Korrektheit der Funktion für alle drei unterscheidungen
+	zu beweisen.
+
+2.	

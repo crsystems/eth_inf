@@ -12,7 +12,7 @@ import org.junit.Test;
 
 public class PublicTest_01 {
 
-      @Test
+    @Test
     public final void test1() {
         Assert.assertEquals(-1, Signum.signum(-10));
     }
