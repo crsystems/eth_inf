@@ -1,0 +1,76 @@
+Task 1
+
+a)
+
+Eingerückte Darstellung:
+
+2
+	76
+		11
+			41
+			7
+			25
+				13
+		7
+			16
+				54
+				17
+	79
+		87
+			1
+			23
+				5
+				3
+		65
+
+Klammerdarstellung:
+2(76(11(41,7,25(13)),7(16(54,17))),79(87(1,23(5,3)),65))
+
+b)
+
+Eingerückte Darstellung:
+
+S
+	R
+		H
+			K
+	P
+		A
+			N
+			O
+		Q
+		T
+	V
+		J
+		F
+			G
+
+
+
+Gerichteter Graph:
+       ----- S
+      /    /   \
+     R    P      V
+    /   / | \   / \
+   H   A  Q  T J   F
+  /   / \           \
+ K   N   O           G
+
+
+c)
+Ja, da festgelegt wurde, dass die Schreibweise von links nach rechts auch den Baum von links nach rechts beschreibt.
+
+d)
+rechts auch den Baum von links nach rechts beschreibt.
+
+d)
+			Baum a)			Baum b)
+	1) 		   4			  3
+
+	2)	   2->76->11->25->13         S->R->H->K 
+		   2->76->7->16->54          S->P->A->N
+		   2->76->7->16->17          S->P->A->O
+		   2->79->87->23->5          S->V->F->G
+		   2->79->87->23->3
+
+	3)	41,7,13,54,17,1,5,3,65	    K,N,O,Q,T,J,G
