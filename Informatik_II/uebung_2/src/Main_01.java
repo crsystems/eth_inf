@@ -9,7 +9,7 @@ public class Main_01 {
         
         // we print a heading and make it bigger using HTML formatting
         System.out.println("<h4>-- RandomArray.java --</h4>");
-	RandomArray rand = new RandomArray(3);
+	RandomArray rand = new RandomArray(30);
 	System.out.println(rand.toString());
 	rand.sort();
 	System.out.println(rand.toString());

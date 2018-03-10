@@ -19,7 +19,7 @@ public class RandomArray {
 
 	numbers = new int[length];
 	for(int i = 0; i < length; i++){
-		numbers[i] = rand.nextInt(100);
+		numbers[i] = rand.nextInt(1000);
 	}
     }
 
@@ -51,15 +51,17 @@ public class RandomArray {
      * are placed in the first <em>until</em> positions of the array and sorted in descending order.
      */
     private void recursiveSort(int until){
-	    if(until <= 0){
+	    if(numbers.length < 1){
 		    return;
-	    }else if(until > 1){
-		    recursiveSort(until - 1);
+	    }
+
+	    if(until > 1){
+		    recursiveSort(until-1);
 	    }
 
 	    int max_index = until-1;
 	    for(int i = until; i < numbers.length; i++){
-		    if(numbers[i] > numbers[until-1]){
+		    if(numbers[i] > numbers[until-1] && numbers[i] > numbers[max_index]){
 			    max_index = i;
 		    }
 	    }
