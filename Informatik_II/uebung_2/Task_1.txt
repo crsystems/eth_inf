@@ -61,9 +61,6 @@ c)
 Ja, da festgelegt wurde, dass die Schreibweise von links nach rechts auch den Baum von links nach rechts beschreibt.
 
 d)
-rechts auch den Baum von links nach rechts beschreibt.
-
-d)
 			Baum a)			Baum b)
 	1) 		   4			  3
 
