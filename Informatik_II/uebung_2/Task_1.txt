@@ -58,7 +58,8 @@ Gerichteter Graph:
 
 
 c)
-Ja, da festgelegt wurde, dass die Schreibweise von links nach rechts auch den Baum von links nach rechts beschreibt.
+Ja, falls die Position der Nachfolger unwesentlich ist.
+Nein, falls die Position wichtig ist, da sie nicht eindeutig aus der Klammerdarstellung gewonnen werden kann.
 
 d)
 			Baum a)			Baum b)
