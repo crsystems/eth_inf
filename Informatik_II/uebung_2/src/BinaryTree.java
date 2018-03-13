@@ -57,7 +57,7 @@ public class BinaryTree {
 		}
 		
 		for(int i = 0; i < array.length; i++){
-			if(array[father(i)] == ' '){
+			if(array[i] != ' ' && array[father(i)] == ' '){
 				throw new IllegalArgumentException("Node " + i + " has no valid father!");
 			}
 		}
@@ -92,7 +92,7 @@ public class BinaryTree {
 			return str;
 		}*/
 
-		return this.printSubtree(0);
+		return this.printSubtree(0, 0);
 	}
 
 
@@ -101,16 +101,22 @@ public class BinaryTree {
 	 *
 	 * One line per node, depth-first. One space of indentation per depth.
 	 */
-	private String printSubtree(int start){
-		if(start > (tree.length-1)){
+	private String printSubtree(int start, int depth){
+		if(start > (tree.length-1) || tree[start] == ' '){
 			return "";
 		}
 
 		String str = new String();
+		String ws = new String();
 		
-		str = String.valueOf(tree[start]) + "\n ";
-		str = str + this.printSubtree(start*2+1);
-		str = str + this.printSubtree(start*2+2);
+
+		for(int i = 0; i < depth; i++){
+			ws += " ";
+		}
+		
+		str = ws + tree[start] + "\n";
+		str = str + this.printSubtree(start*2+1, depth+1);
+		str = str + this.printSubtree(start*2+2, depth+1);
 		return str;
 	}
 }
