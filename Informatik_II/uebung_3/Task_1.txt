@@ -1,0 +1,31 @@
+Task_1
+
+
+a)
+
+Invariante: z + u*j = i*j
+
+Da u am Anfang gleich i gilt die Aussage vor der Schleife.
+In der Schleife wird u um eins dekrementiert und z um j inkrementiert, weswegen sich an der Aussage nichts ändert.
+Die Schleife terminiert wenn u gleich 0 ist, weswegen die Aussage auch nach der Schleife gilt.
+Damit ist gezeigt, dass es sich bei dem Ausdruck um eine Schleifeninvariante handelt.
+
+
+b)
+
+Drei Fälle:
+
+	i) i,j elem R+:
+		Da nach der Invariante nach der Schleife gilt: z + u*j = i*j und u = 0 gilt z = i*j. Q. E. D.
+
+	ii) i = 0, j elem R+:
+		Da u = i vor der Schleife und die Schleife nur ausgeführt wird, falls u > 0, gilt z = 0 = i*j. Q. E. D.
+
+	iii) i elem R+, j = 0:
+		Da z = 0 vor der schleife und in der Schleife um j (also 0) incrementiert wird, gilt nach der Schleife 
+		z = i*j = 0. Q. E. D.
+
+c)
+
+Die Invariante gilt weiterhin, allerdings terminiert die Schleife für i > 0 nicht mehr.
+Somit gilt der Beweis aus Teilaufgabe nicht mehr.

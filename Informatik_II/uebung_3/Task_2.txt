@@ -1,0 +1,8 @@
+To subtask b) 
+
+Die Main Methode generiert 1000 blöcke von 500 zeichen langen random strings, verschlüsselt und entschlüsselt diese, um sie mit dem Original zu vergleichen und auf Gleichheit zu überprüfen. 
+Sowohl beim Verschlüsseln, wie auch beim entschlüsseln wird die vergangene Zeit gemessen und ausgegeben. 
+
+Die unterschiedlichen Laufzeiten bei ver- und entschlüsseln rühren daher, dass bei der Verschlüsselung Strings benutzt werden. 
+Das bedeutet, dass für jedes hinzukommende Zeichen ein neuer Speicherbereich von der länge des gesamten bisherigen Strings plus einem Zeichen angefordert werden muss. 
+Das kostet weitaus mehr Zeit, als das allozieren eines einzigen Zeichens in einem StringBuffer, wie es beim Entschlüsseln implementiert wurde.

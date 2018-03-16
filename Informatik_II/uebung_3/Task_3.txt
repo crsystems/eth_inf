@@ -1,0 +1,21 @@
+Task_3
+
+a)	Clause
+
+
+X2					nicht erzeugbar
+
+(~ X1)  				erzeugbar
+
+~(X1 OR ~ X2)				nicht erzeugbar
+
+(X2) OR (~ X1 OR X2)			nicht erzeugbar
+
+
+
+b)	Expression
+
+
+(X1 OR X2) AND (~ X1)			erzeugbar
+
+(X1) AND (~ X1 OR ~ X2) AND (X2)	erzeugbar
