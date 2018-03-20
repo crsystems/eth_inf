@@ -12,58 +12,79 @@ public class KD {
 	 * @throws ParseException if the given String is not a valid KD of a tree.
 	 */
 	public static void parse(String kd) throws ParseException{
-	}
-
-	private int index = 0;
-
-	private static int parse_tree(String kd){
-		int parsed = 0;
-		int cur = 0;
-
-
-		cur = parse_node(String);
-		if(cur == -1){
-			return -1;
-		}else{
-			parsed += cur;
+		
+		check_offset(kd, 0);
+		int offset = parse_tree(kd, 0);
+		
+		if(offset < kd.length()){
+			throw new ParseException("Unexpected end of tree!", offset);
 		}
 
-		if(index < kd.length){
-			parsed++;
+		return;
+	}
 
-			if(kd.charAt(index) != '('){
-				return -1;
+	private static void check_offset(String kd, int offset) throws ParseException{
+		if((offset < kd.length()) == false){
+			throw new ParseException("Unexpected end of tree!", offset);
+		}
+
+	}
+
+	private static int parse_tree(String kd, int offset) throws ParseException{
+
+		offset = parse_node(kd, offset);
+		
+		if(offset < kd.length() && kd.charAt(offset) == '('){
+
+			if(kd.charAt(offset-1) == '-'){
+				throw new ParseException("Missing root for subtree!", offset-1);
 			}
-			index++;
 
-			cur = parse_subtree();
-			if(cur == -1){
-				return -1;
+			offset++;
+
+			check_offset(kd, offset);
+
+			offset = parse_subtree(kd, offset);
+
+			check_offset(kd, offset);
+
+			if(kd.charAt(offset) == ')'){
+				offset++;
+				return offset;
 			}else{
-				parsed += cur;
+				throw new ParseException("Expecting ')' but got: " + kd.charAt(offset) + " !", offset);
 			}
-
-			parsed++;
-			if(kd.charAt(index) != ')'){
-				return -1;
-			}
-			index++;
 		}
 
-		return parsed;
-
-
-	}
-
-	private static int parse_subtree(String kd){
-
+		return offset;
 
 	}
 
+	private static int parse_subtree(String kd, int offset) throws ParseException{
 
-	private static int parse_node(String kd){
-		if(
+		offset = parse_tree(kd, offset);
 
+		check_offset(kd, offset);
+
+		while(kd.charAt(offset) == ','){
+			offset++;
+			
+			check_offset(kd, offset);
+
+			offset = parse_tree(kd, offset);
+
+			check_offset(kd, offset);
+		}
+
+		return offset;
+	}
+
+
+	private static int parse_node(String kd, int offset) throws ParseException{
+		if(Character.isUpperCase(kd.charAt(offset)) == false && kd.charAt(offset) != '-'){
+			throw new ParseException("Not a valid node: " + kd.charAt(offset) + " !", offset);
+		}
+		return ++offset; 	
 
 	}
 }
