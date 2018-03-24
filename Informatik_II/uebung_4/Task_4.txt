@@ -1,0 +1,73 @@
+Task 4
+
+1.
+
+public int A(int, int);
+    Code:
+       0: iload_1
+       1: ifne          8
+       4: iload_2
+       5: iconst_1
+       6: iadd
+       7: ireturn
+       8: iload_2
+       9: ifne          21
+      12: aload_0
+      13: iload_1
+      14: iconst_1
+      15: isub
+      16: iconst_1
+      17: invokevirtual #2                  // Method A:(II)I
+      20: ireturn
+      21: aload_0
+      22: iload_1
+      23: iconst_1
+      24: isub
+      25: aload_0
+      26: iload_1
+      27: iload_2
+      28: iconst_1
+      29: isub
+      30: invokevirtual #2                  // Method A:(II)I
+      33: invokevirtual #2                  // Method A:(II)I
+      36: ireturn
+}
+
+2.
+	if(n==0)		==> 	ifne	8
+	
+	return m+1		==>	iload_2
+					iconst_1
+					iadd
+					ireturn
+
+	if(m==0)		==>	ifne	21
+
+	return A(n-1,1)		==>	iload_1
+					iconst_1
+					isub
+					iconst_1
+					invokevirtual #2
+					ireturn
+
+	return A(m-1, A(n, m-1)	==>	iload_1
+					iconst_1
+					isub
+					aload_0
+					iload_1
+					iload_2
+					iconst_1
+					isub
+					invokevirtual #2
+					invokevirtual #2
+					ireturn
+
+3.
+
+IterativeAckermann.A ist circa drei mal so groß wie RecursiveAckermann mit 105 vs 36 Instructions.
+Außerdem braucht IterativeAckermann viel mehr Funktionsaufrufe (invokevirtual / invokespecial) was im Vergleich relativ langsam ist.
+Bsp:
+
+	IterativeAckermann(3,10) benötigt auf meinem Rechner: 4m4,684s
+
+	wohingegen RecursiveAckermann(3,10) 0m0,191s benötigt. 
