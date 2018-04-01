@@ -1,0 +1,11 @@
+Task_1 Schleifeninvarianten
+
+1.	Nein, da x < 2 mindestens ein mal wahr ist und in der Schleife x zu 1 gesetzt wird. Abgesehen davon terminiert die Schleife nicht mal, was eine Betrachtung der Invarianz unnötig macht.
+
+2.	Nein, mit der gleichen begründung von 1.
+
+3.	Nein, da die Schleife mit diesem Wert ausgeführt wird und x = 0 in der Schleife verletzt wird.
+	Somit ist x = 0 keine Schleifeninvariante.
+
+4.	Ja, da das das Abbruchkriterium der Schleife ist und die Bedingung in der Schleife nicht verletzt wird.
+ 
