@@ -1,0 +1,19 @@
+Task 2 - Programmverifikation
+
+
+//PRE: n >= 1
+//POST: y = ceil(sqrt(n))
+public int foo(int n){
+	int y = 0; //Axiom y = 0
+	// y*y = 0 < n (Schleifen Vorbedingung)
+	while(y*y < n){
+	//y*y < n (Schleifen Bedingung)
+		y = y+1;
+		//y*y = {
+		//			< n 	wenn y <  sqrt(n)
+		//			>= n 	wenn y >= sqrt(n)
+		}
+	//y = ceil(sqrt(n))
+
+	return y; //sonst macht public int keinen Sinn ;)
+}
