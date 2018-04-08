@@ -1,6 +1,8 @@
 package u5a3;
 
 import list.List;
+import u5a1.Lists;
+import u5a2.MutableLists;
 
 public class SortedLists {
 	/**
@@ -13,8 +15,12 @@ public class SortedLists {
 	 * @param value the value which is inserted into the list
 	 * @return
 	 */
-	public static List insertSorted(List list, int value)
-	{
+	public static List insertSorted(List list, int value){
+		if(list == null){
+			return new List(value, null);
+		}else{
+			for(int i = 0; i < Lists.size(list); i++){
+				if(
 	}
 	
 	/**

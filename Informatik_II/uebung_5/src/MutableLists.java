@@ -1,6 +1,7 @@
 package u5a2;
 
 import list.List;
+import u5a1.Lists;
 public class MutableLists {
 	/**
 	 * Appends a value at the end of a list.
@@ -14,7 +15,7 @@ public class MutableLists {
 			throw new IllegalArgumentException("Empty list!");
 		}else{
 			List added = new List(value, null);
-			u5a1.Lists.last(list).next = added;
+			Lists.last(list).next = added;
 		}
 	}
 	
@@ -29,7 +30,7 @@ public class MutableLists {
 		if(head == null){
 			throw new IllegalArgumentException("Empty head list!");
 		}else{
-			u5a1.Lists.last(head).next = tail;
+			Lists.last(head).next = tail;
 		}
 	}
 
@@ -42,11 +43,11 @@ public class MutableLists {
 	 * @throws IndexOutOfBoundsException if the position is greater than the size of the list
 	 */
 	public static void insertAt(List list, int index, int value) throws IndexOutOfBoundsException{
-		if(index > u5a1.Lists.size(list)){
+		if(index > Lists.size(list)){
 			throw new IndexOutOfBoundsException("Index larger than list");
 		}else{
-			List n_list = new List(value, u5a1.Lists.sublist(list, index).next);
-			u5a1.Lists.sublist(list, index).next = n_list;
+			List n_list = new List(value, Lists.sublist(list, index).next);
+			Lists.sublist(list, index).next = n_list;
 		}		
 	}
 	
@@ -59,11 +60,11 @@ public class MutableLists {
 	 * @throws IndexOutOfBoundsException if the position is greater than the size of the list
 	 */
 	public static void insertAt(List list, int index, List newList) throws IndexOutOfBoundsException{
-		if(index > u5a1.Lists.size(list)){
+		if(index > Lists.size(list)){
 			throw new IndexOutOfBoundsException("Index larger than list!");
 		}else{
-			u5a1.Lists.last(newList).next = u5a1.Lists.sublist(list, index).next;
-			u5a1.Lists.sublist(list, index).next = newList;
+			Lists.last(newList).next = Lists.sublist(list, index).next;
+			Lists.sublist(list, index).next = newList;
 		}
 	}
 
@@ -78,14 +79,14 @@ public class MutableLists {
 	 * @throws IndexOutOfBoundsException if position is greater than the size of the list
 	 */
 	public static List remove(List list, int index) throws IndexOutOfBoundsException{
-		if(index > u5a1.Lists.size(list)){
+		if(index > Lists.size(list)){
 			throw new IndexOutOfBoundsException("Index larger than list");
 		}else if(list == null){
 			throw new IndexOutOfBoundsException("Not a valid list!");
 		}else if(index == 0){
 			return list.next;
 		}else{
-			u5a1.Lists.sublist(list, index-1).next = u5a1.Lists.sublist(list, index).next;
+			Lists.sublist(list, index-1).next = Lists.sublist(list, index).next;
 			return list;
 		}
 	}
