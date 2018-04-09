@@ -48,8 +48,8 @@ public class Stack {
 	 * 
 	 * @param number the number which is pushed onto this stack. 
 	 */
-	public void push(int number)
-	{
+	public void push(int number){
+		list = Lists.add(list, number);
 
 	}
 	
@@ -59,9 +59,14 @@ public class Stack {
 	 * @return The number at the top of this stack
 	 * @throws EmptyStackException if this stack is empty
 	 */
-	public int pop() throws EmptyStackException 
-	{
-		
+	public int pop() throws EmptyStackException{
+		if(list == null){
+			throw new EmptyStackException();
+		}else{
+			int val = list.value;
+			list = list.next;
+			return val;
+		}
 	}
 	
 	/**
@@ -70,9 +75,12 @@ public class Stack {
 	 * @return the number at the top of this stack
 	 * @throws EmptyStackException if this stack is empty
 	 */
-	public int peek() throws EmptyStackException
-	{
-		
+	public int peek() throws EmptyStackException{
+		if(list == null){
+			throw new EmptyStackException();
+		}else{
+			return list.value;
+		}
 	}
 
 	/**
@@ -80,9 +88,8 @@ public class Stack {
 	 * 
 	 * @return true if and only if this stack contains no items; false otherwise.
 	 */
-	public boolean empty()
-	{
-	
+	public boolean empty(){
+		return list == null;
 	}
 	
 	/**
@@ -90,8 +97,8 @@ public class Stack {
 	 * 
 	 * @return the current number of items on this stack
 	 */
-	public int size() 
-    {
+	public int size(){
+		return Lists.size(list);
 
 	}
 }
