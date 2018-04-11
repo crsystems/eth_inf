@@ -4,16 +4,21 @@ Task 2 - Programmverifikation
 //PRE: n >= 1
 //POST: y = ceil(sqrt(n))
 public int foo(int n){
-	int y = 0; //Axiom y = 0
-	// y*y = 0 < n (Schleifen Vorbedingung)
+	int y = 0; 			//Axiom y = 0
+					// y*y = 0 < n (Schleifen Vorbedingung)
 	while(y*y < n){
-	//y*y < n (Schleifen Bedingung)
+					//y*y < n (Schleifen Bedingung)
 		y = y+1;
-		//y*y = {
-		//			< n 	wenn y <  sqrt(n)
-		//			>= n 	wenn y >= sqrt(n)
-		}
-	//y = ceil(sqrt(n))
+					//y*y = 
+					//			< n 	wenn y <  sqrt(n)
+					//			>= n 	wenn y >= sqrt(n)
+	}
+					//y*y > n && (y-1)*(y-1) < n ==> y = ceil(sqrt(n)), d.h. der nächst größere Integer zur
+					//Quadratwurzel von n.
+					//Die Schleife terminiert, da y bei jedem durchlauf inkrementiert wird und bei der 
+					//Voraussetzung n <= 0 y*y wegen der Monotonie irgendwann über n wächst.
+					//Damit ist nach einer endlichen Anzahl Iteration die Bedingung y*y < n nich mehr erfüllt
+					//und die Schleife terminiert.
 
-	return y; //sonst macht public int keinen Sinn ;)
+	return y; 			//sonst macht int keinen Sinn ;)
 }
