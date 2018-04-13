@@ -3,6 +3,10 @@ Task 1:
 
 a)
 
+
+
+b)
+
 void c1()
 {
 	D d = new D();
@@ -63,7 +67,9 @@ void c6()
 	F f = c;
 }
 
-b)
+
+
+c)
 
 
 void d1()
