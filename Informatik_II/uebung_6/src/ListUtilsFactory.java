@@ -11,7 +11,7 @@ public class ListUtilsFactory {
 	 */
 	public static IListUtils create()
 	{
-		// TODO
-		return null;
+		IListUtils list = new ListUtils();
+		return list;
 	}
 }

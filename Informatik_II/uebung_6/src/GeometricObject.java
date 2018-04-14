@@ -6,9 +6,7 @@ package u6a3;
 public abstract class GeometricObject implements Comparable {
 	public abstract int area();
 	
-	public boolean smallerThan(Comparable rhs) 
-    {
-		// TODO
-		return false;
+	public boolean smallerThan(Comparable rhs){
+		return (this.area() < rhs.area()) ;
 	}
 }

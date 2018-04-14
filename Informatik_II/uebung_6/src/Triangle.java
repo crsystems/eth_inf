@@ -11,8 +11,7 @@ public class Triangle extends GeometricObject {
 	
 	public int area()
 	{
-		// TODO
-		return -1;
+		return (int) 0.5*(this.base*this.height);
 	}
 	
 	public Triangle(int base, int height)

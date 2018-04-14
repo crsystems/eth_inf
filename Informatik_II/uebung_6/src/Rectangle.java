@@ -9,10 +9,8 @@ public class Rectangle extends GeometricObject {
 		return String.format("Rectangle(%d,%d)", a, b);
 	}
 	
-	public int area()
-	{
-		// TODO
-		return -1;
+	public int area(){
+		return a*b;
 	}
 	
 	public Rectangle(int base, int height)
