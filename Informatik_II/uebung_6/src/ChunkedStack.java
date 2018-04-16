@@ -43,39 +43,64 @@ public class ChunkedStack implements u6a2.IStack {
 
 	public boolean empty() 
 	{
-		// TODO
+		if(used == 0 && this.numberOfChunks() == 1){
+		    return true;
+		}
 		return false;
 	}
 
 	public int peek() throws EmptyStackException 
 	{
-		// TODO
-		return -1;
+	    if(this.empty())
+	        throw new EmptyStackException();
+	    return chunks.buffer[used-1];
 	}
 
 	public int pop() throws EmptyStackException 
 	{
-		// TODO
-		return -1;
+	    if(this.empty())
+	        throw new EmptyStackException();
+	    if(used == 1){
+	        int tmp = chunks.buffer[0];
+	        if(this.numberOfChunks() > 1){
+	            chunks = chunks.removeChunk();
+	            used = chunks.chunkSize;
+	        }else{
+	            used--;
+	        }
+	        return tmp;
+	    }else{
+	        used--;
+	        return chunks.buffer[used];
+	    }
 	}
 
 	public void push(int number) 
 	{		
-		// TODO
-		return;
+		if(used < chunks.chunkSize){
+		    chunks.buffer[used] = number;
+		    used++;
+		}else{
+		    chunks = chunks.addChunk();
+		    used = 1;
+		    chunks.buffer[0] = number;
+		}
 	}
 
 	public int size() 
 	{
-		// TODO
-		return -1;
+	    if(chunks.size() > 1){
+		    return (((chunks.size()-1)*chunks.chunkSize) + used);
+	    }else{
+	        return used;
+	    }
 	}
 	
 	/**
     * Return the number of chunks in the {@link ChunkList}
     */
 	public int numberOfChunks() {
-		//todo
-		return -1;
+		return chunks.size();
 	}
 }
+

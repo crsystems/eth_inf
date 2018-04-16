@@ -39,7 +39,7 @@ public class ListUtils implements IListUtils{
 	private GenericList insertSorted(GenericList list, Object value){
 		if(list == null){
 			return new GenericList(value, null);
-		}else if(value.smallerThan(list.value)){
+		}else if(((Comparable) list.value).smallerThan((Comparable) value) == false) {
 			return this.add(list, value);
 		}else{
 			list.next = this.insertSorted(list.next, value);

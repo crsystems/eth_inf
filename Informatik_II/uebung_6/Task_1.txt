@@ -2,7 +2,18 @@ Task 1:
 
 
 a)
+<name> => interface name { }
+[name] => class name { }
+(name) => abstract class name { }
 
+		<A>
+               /      \
+              /		<C>
+             /
+            /
+	   /
+	  /
+	(B)
 
 
 

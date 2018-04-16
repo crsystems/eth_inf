@@ -7,6 +7,10 @@ public abstract class GeometricObject implements Comparable {
 	public abstract int area();
 	
 	public boolean smallerThan(Comparable rhs){
-		return (this.area() < rhs.area()) ;
+		if(this.area() < ((GeometricObject) rhs).area()){
+		       	return true;
+		}else{
+			return false;
+		}
 	}
 }
