@@ -1,26 +1,9 @@
-Task 1:
-
-
-a)
-<name> => interface name { }
-[name] => class name { }
-(name) => abstract class name { }
-
-		( B ) --- < A >        	[ F ] --- < C >		< A >
-        	 / \       	         	        	  |
-              	/   \			                	< C >
-   < C > --- [ D ] [ E ] 
-
-
-
-
-
-
-
 b)
-A	=> A ist ein Interface. Somit kann kein Objekt davon erzeugt werden
-B	=> B ist eine abstrakte Klasse. Davon kann auch kein Objekt erzeugt werden.
-C	=> Für C gilt die gleiche Begründung wie für A
+A	=> A ist ein Interface, darum kann kein Objekt davon erzeugt werden
+B	=> B ist eine abstrakte Klasse, darum kann kein Objekt erzeugt werden
+C	=> Siehe A
+
+
 
 
 
@@ -88,9 +71,11 @@ void c6()
 
 
 
+
+
+
+
 d)
-
-
 void d1()
 {
 	A a = new D();
