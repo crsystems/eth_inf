@@ -1,0 +1,9 @@
+id=TestGame time=1524128735107 new game
+id=TestGame time=1524128735107 red=u7a4.HumanPlayer green=u7a4.HumanPlayer
+id=TestGame time=1524128735564 initialized
+id=TestGame time=1524128760574 Redmove=6,5
+id=TestGame time=1524128863840 Greenmove=3,6
+id=TestGame time=1524128875011 Redmove=4,3
+id=TestGame time=1524128886102 Greenmove=7,5
+id=TestGame time=1524128893310 Redmove=2,7
+id=TestGame time=1524128969070 quit button pressed
