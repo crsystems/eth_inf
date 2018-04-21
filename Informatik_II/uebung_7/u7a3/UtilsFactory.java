@@ -3,7 +3,7 @@ package u7a3;
 public class UtilsFactory {
 	public static IBinarySearchTreeUtils<String> create()
 	{
-		// TODO 
-		return null;
+		IBinarySearchTreeUtils<String> util = new BinarySearchTreeUtils<String>(); 
+		return util;
 	}
 }
