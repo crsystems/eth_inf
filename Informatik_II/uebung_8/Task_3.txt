@@ -1,0 +1,7 @@
+Task 3
+
+a)
+
+
+Nein. Wenn es beispielsweise zwei Gegenstände mit gleichem Gewicht und gleichem Wert gibt, die aber in der Selection an 
+unterschiedlichen Stellen stehen, und zu einem optimalen Resultat führen, gibt es zwei optimale Lösungen.
