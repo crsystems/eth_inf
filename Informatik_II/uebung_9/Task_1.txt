@@ -1,0 +1,84 @@
+Task 1:
+
+a)
+	Die Suchtiefe und die die Höhe des Baumes beträgt 3.
+
+b)
+		Verwendete Zählweise der Kindknoten:
+
+			1	2	3
+
+				4
+			       /|\
+			      / | \
+			     /	|  \
+			    /   |   \
+			   /	|    \
+			  / 	|     \
+			 /	|      \
+			4	0      -2
+		       / \     / \     /|\
+		      /	  \   /   \   / | \
+		     /	  |   |	  |  |  |  \
+		    /	  |   |	  |  |  |   \
+		   /	  |   |	  |  |  |    \
+		  /	  |   |	  |  |  |     \
+		 /	  |   |	  |  |  |      \
+		4	  7   3   0  2  -2      8
+			 / \	    / \	       / \
+			|   |	   |   |      |   \
+			|   |	   |   |      |    \
+			|   |	   |   |      |     \
+			|   | 	   |   |      |      \
+			|   |	   |   |      |       \
+			7   -5     2   1      7        8	
+
+	Der beste Zug für den Spieler MAX ist der erste (ganz linke) Zug, aus der jetzigen Spielpostion.
+
+c)
+	Die  optimale Strategie	für den Spieler Max ist:
+
+		1 ==> 4  (falls MIN den ersten Zug wählt) oder
+		1 -> 1 ==> 7 (falls MIN den zweitenzug wählt).
+  	
+
+d)
+
+
+MAX			   (-inf, inf)
+			   (4, inf)
+			   (4, inf) 
+				4
+			       /|\
+			      / | \
+			     /	|  \
+			    /   |   \
+			   /	|    \
+			  / 	|     \
+			 /	|      \
+MIN  		(-inf, inf)  (4, inf) (4, inf)
+	 	(-inf, 4)    (4, 3)   (4, 4)
+                (-inf, 4)
+			4	3
+		       / \     / \/    /|\/
+		      /	  \   /  /\   / |/\
+		     /	  |   |	  |  | /|  \
+		    /	  |   |	  |  |  |   \
+		   /	  |   |	  |  |  |    \
+		  /	  |   |	  |  |  |     \
+		 /	  |   |	  |  |  |      \
+MAX		4   (-inf, 4) 3   0     -2       
+		        (7, 4)	
+
+				  (4, inf)
+				  (4, inf)
+				  (4, inf)					
+			 / \ /	    / \	       / \
+			|   /	   |   |      |   \
+			|  /|	   |   |      |    \
+			|   |	   |   |      |     \
+			|   | 	   |   |      |      \
+			|   |	   |   |      |       \
+			7   -5     2   1      7        8	
+
+	
