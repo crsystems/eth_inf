@@ -9,3 +9,12 @@ Task 1:
    8 9 15 21 44 45 88           6 45 62 67 98
                \                     /
         6 8 9 15 21 44 45 45 62 67 88 98
+
+
+
+b)
+
+Sie stimmen nur bedingt überein. Das kann ich mir nur damit erklären, dass der Messbereich von 10 werten sehr klein ist
+und das sich die Ergebnisse der Messung je nach Prozessor und Geschwindigkeit um einen konstanten Faktor unterscheiden. 
+Die Art des Wachstums ist aber circa die gleiche. 
+Denn für sich allein betrachtet stimmen die Steigungen der Graphen annähernd überein.

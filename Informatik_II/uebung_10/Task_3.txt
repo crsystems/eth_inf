@@ -16,4 +16,87 @@ hanoi(4, 1, 2)
 		2 -> 3
 			hanoi(1, 1, 3)
 				1 -> 3
+1 -> 2
+	hanoi(3, 3, 2)
+		hanoi(2, 3, 1)
+			hanoi(1, 3, 2)
+				3 -> 2
+		3 -> 1
+			hanoi(1, 2, 1)
+				2 -> 1
+	3 -> 2
+		hanoi(2, 1, 2)
+			hanoi(1, 1, 3)
+				1 -> 3
+		1 -> 2
+			hanoi(1, 3, 2)
+				3 -> 2
+
+==> Nicht benutzer Turm:
+
+2
+3
+1
+2
+3
+1	==> Pattern (Dst, 6-Src-Dst, Src)
+2
+3
+1
+2
+3
+1
+2
+3
+1
+
+
+Der einfachste Code für dieses 4 Stöckige Problem wäre:
+
+b)
+
+void hanoi_4(int src, int dst){
+	int next_src = src, next_dst = 6-src-dst;
+
+	for(i = 0; i < 5; i++){
+		if(i == 1){
+			move_2(src, dst, 0);
+		}else if(i == 3){
+			move_2(src, dst, 1),
+		}else{
+			move_1(src, dst);
+		}
+	}
+
+}
+
+void move_1(int src, dst){
+	move(src, 6-src-dst);
+	move(src, dst);
+	move(6-src-dst, dst);
+	return;
+}
+
+void move_2(int src, int dst, int direction){
+	if(direction == 1){
+		int tmp = dst;
+		dst = src;
+		src = dst;
+	}
+
+	move(src, 6-src-dst);
+
+	if(direction == 1){
+		move(src, dst);
+	}else{
+		move(dst, src);
+	}
 	
+	move(6-src-dst, dst);
+	return;
+}
+
+
+c)	
+
+Nein, den Algorithmus kann man nicht für einen Turm der Höhe 5 verwenden, da sich dadurch die Indizes weiter verändern.		
