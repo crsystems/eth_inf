@@ -81,7 +81,7 @@ void move_2(int src, int dst, int direction){
 	if(direction == 1){
 		int tmp = dst;
 		dst = src;
-		src = dst;
+		src = tmp;
 	}
 
 	move(src, 6-src-dst);
