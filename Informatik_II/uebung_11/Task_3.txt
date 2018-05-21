@@ -1,0 +1,11 @@
+Task 3
+
+Laufzeit:	max. Größe alt		max. Größe neu
+
+   O(n)		M1			M1' = 3*M1
+
+  O(n^2)	M2			M2' = sqrt(3)*M2
+
+  O(2^n)	M3			M3' = ln(3*(2^M3))/ln(2)
+
+ O(log(n))	M4			M4' = e^(3*log(M4)) = e^(log(M4)^3) = M4^3
