@@ -1,0 +1,15 @@
+Task 2
+
+  Code Fragment	   | 	Laufzeitkomplexität
+		   |
+	1	   |		O(n)
+		   |
+	2	   |		O(n)
+		   |
+	3	   |		O(n^2)
+		   |
+	4	   |		O(n)
+		   |	
+	5	   |
+		   |
+	6	   |		O(n^3)		
