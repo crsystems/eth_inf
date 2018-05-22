@@ -1,0 +1,13 @@
+1. Indem man die Elemente des Suchbaums in order (also von links nach rechts und unten nach oben) ausgibt.
+Falls die Frage wieder mal anders gemeint war (wir brauchen meistens mehr Zeit, um die Fragen zu verstehen als sie zu lösen):
+Ein binärer Suchbaum sortiert, indem jedes Element (angefangen bei der Wurzel) mit einem Knoten verglichen wird. Falls das Element kleiner ist,
+wird es mit dem nächsten linken unteren Knoten verglichen, falls grösser, mit dem rechten. Falls kein Knoten/Blatt mehr vorhanden ist, wird das Element zu diesem Knoten/Blatt.
+
+2. a) und b) sind ungünstig, da dadurch ein einseitiger Baum entsteht, der von der Wurzel an nur rechts bzw links Knoten hat.
+c) ist besonders günstig, da dadurch die Chance gross ist, einen ausgeglichenen Baum zu erhalten und somit weniger Vergleichsoperationen nötig sind.
+
+3. 
+Falls ein Binärer Suchbaum das gleiche wie Binary Search ist:
+Best Case: O(1)
+Average:  O(log n)
+Worst: O(log n)
