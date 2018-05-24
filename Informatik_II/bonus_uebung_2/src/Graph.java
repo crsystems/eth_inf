@@ -40,7 +40,22 @@ public class Graph {
      * @throws NoRouteFoundException    falls keine Route von der Start-Stadt zur Ziel-Stadt existiert.
      */
     public IRoute calculateShortestPath(String originName, String destinationName) throws IllegalArgumentException, NoRouteFoundException {
-        // TODO
+        ICity origin = (ICity) new City(originName);
+	ICity destination = (ICity) new City(destinationName);
+	
+	if(origin.equals(destination)){
+		return (IRoute) new Route(origin);
+	}
+
+	this.initDijkstra();
+
+
+
+
+
+
+
+
         return null;
     }
 
@@ -60,7 +75,36 @@ public class Graph {
      * @throws NoRouteFoundException    falls keine Route von der Start-Stadt zur Ziel-Stadt existiert.
      */
     public IRoute calculateShortestPathLimited(String originName, String destinationName, double limit) throws IllegalArgumentException, NoRouteFoundException {
-        // TODO
+        
+	ICity origin = (ICity) new City(originName);
+	ICity destination = (ICity) new City(destinationName);
+	
+	if(origin.equals(destination)){
+		return (IRoute) new Route(origin);
+	}
+
+
+
+
         return null;
+    }
+
+
+    private void initDijkstra(String origin){
+
+	cities.get(origin).setDistance(0.0);
+	cities.get(origin).setPredecessor(null);
+
+	HashMap<String, ICity> tmp = new HashMap<String, ICity>();
+	tmp.putAll(cities);
+
+	tmp.remove(origin);
+
+	ArrayList<ICity> cts = new ArrayList<ICity>();
+	cts.addAll(tmp.values());
+	
+	while
+
+
     }
 }

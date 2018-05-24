@@ -7,8 +7,8 @@ public class CityFactory {
      * @return eine neues Stadt-Objekt mit dem gegeben Namen.
      */
     public static ICity createCity(String name) {
-        //TODO
-        return null;
+        ICity tmp = (ICity) new City(name);
+        return tmp;
     }
 
 
@@ -18,8 +18,8 @@ public class CityFactory {
      * @return eine neue Route von Typ  IRoute.
      */
     public static IRoute createRoute(ICity origin) {
-        //TODO
-        return null;
+        IRoute tmp = (IRoute) new Route(origin);
+        return tmp;
     }
 
 }
