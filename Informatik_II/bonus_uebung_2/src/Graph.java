@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.PriorityQueue;
+import java.util.Collection;
+import java.util.Iterator;
 
 /**
  * Repraesnentiert den Staedtegraph
@@ -40,23 +42,38 @@ public class Graph {
      * @throws NoRouteFoundException    falls keine Route von der Start-Stadt zur Ziel-Stadt existiert.
      */
     public IRoute calculateShortestPath(String originName, String destinationName) throws IllegalArgumentException, NoRouteFoundException {
-        ICity origin = (ICity) new City(originName);
-	ICity destination = (ICity) new City(destinationName);
-	
+        //ICity origin = (ICity) new City(originName);
+	//ICity destination = (ICity) new City(destinationName);
+	ICity origin = cities.get(originName);
+	ICity destination = cities.get(destinationName);
+
 	if(origin.equals(destination)){
 		return (IRoute) new Route(origin);
 	}
 
-	this.initDijkstra();
+	this.initDijkstra(originName);
+
+	IRoute route = (IRoute) new Route(origin);
+	ArrayList<ICity> tmp_route = new ArrayList<ICity>();
+	ICity cur = destination;
+	
+	while(cur.getPredecessor() != null){
+		tmp_route.add(cur);
+		cur = cur.getPredecessor();
+	}
+
+	tmp_route.add(origin);
+	for(int i = tmp_route.size()-1; i > 0; i--){
+		route.addConnectionToRoute(tmp_route.get(i).getConnection(tmp_route.get(i-1).getName()));
+	}
+	
 
 
 
 
 
 
-
-
-        return null;
+        return route;
     }
 
     /**
@@ -92,10 +109,12 @@ public class Graph {
 
     private void initDijkstra(String origin){
 
-	cities.get(origin).setDistance(0.0);
-	cities.get(origin).setPredecessor(null);
+	ICity current = cities.get(origin);
 
-	HashMap<String, ICity> tmp = new HashMap<String, ICity>();
+	current.setDistance(0.0);
+	current.setPredecessor(null);
+
+	/*HashMap<String, ICity> tmp = new HashMap<String, ICity>();
 	tmp.putAll(cities);
 
 	tmp.remove(origin);
@@ -103,8 +122,44 @@ public class Graph {
 	ArrayList<ICity> cts = new ArrayList<ICity>();
 	cts.addAll(tmp.values());
 	
-	while
+	while(cts.size() > 0){*/
 
+	Collection<ICity> cts = cities.values();
+	Iterator<ICity> it = cts.iterator();
 
+	ICity cur_check = null;
+
+	ArrayList<String> known = new ArrayList<String>();
+	known.add(origin);
+
+	Iterator<ICity> tmp = current.getConnections().iterator();
+
+	while(tmp.hasNext()){
+		cur_check = tmp.next();
+		if(!known.contains(cur_check.getDestination().getName())){
+			if(cur_check.getDistance() < cur_check.getDestination().getDistance()){
+				cur_check.getDestination().setDistance(cur_check.getDistance());
+				cur_check.getDestination().setPredecessor(current);
+			}
+		}
+	}
+
+	it.remove(current);
+
+	while(it.hasNext()){
+		current = it.hasNext();
+		
+		Iterator<ICity> tmp = current.getConnections().iterator();
+
+		while(tmp.hasNext()){
+			cur_check = tmp.next();
+			if(!known.contains(cur_check.getDestination().getName())){
+				if((current.getDistance() + cur_check.getDistance()) < cur_check.getDestination().getDistance()){
+					cur_check.getDestination().setDistance((current.getDistance + cur_check.getDistance()));
+					cur_check.getDestination().setPredecessor(current);
+				}
+			}
+		}
+	}
     }
 }
