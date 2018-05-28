@@ -1,0 +1,46 @@
+Task 1
+
+a)
+
+Mindestens: 	2^n
+Maximal:	(2^(n+1))-1
+
+b)
+
+Sortiertes Array -> Heap:	Ja, da ein sortiertes Array immer die Heap-Voraussetzung erfüllt.
+
+Heap als Array -> sortiert:	Nein, da man die einzelnen Children vertauschen kann.
+
+
+c)
+
+2	0	3	4	7	5
+_________________________________________
+
+2   |	0	3	4	7	5
+
+0   	2   |	3	4	7	5
+
+0	2   	3   |	4	7	5
+
+0	2	3	4   |	7	5
+
+0	2	3	4	7   |	5
+
+Heap:
+
+0	2	3	4	7	5
+
+2       3	4	7	5   |	0
+
+3	4	5	7   |   0	2
+
+4	5	7   |   0	2	3
+
+5	7   |   0	2	3	4	
+
+7   |   0	2	3	4	5
+
+0	2	3	4	5	7
+
+
