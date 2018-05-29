@@ -7,7 +7,10 @@ public class MergeSortParallel<T extends Comparable<T>> extends Thread{
 	ArrayList<T> sorted = new ArrayList<T>();
 	ArrayList<T> unsorted = new ArrayList<T>();
 
-	public MergeSort(ArrayList<T> unsorted){
+	public MergeSortParallel(){
+	}
+
+	public void setUnsorted(ArrayList<T> unsorted){
 		this.unsorted = unsorted;
 	}
 	
@@ -34,7 +37,7 @@ public class MergeSortParallel<T extends Comparable<T>> extends Thread{
 	}
 
 
-	private ArrayList<T> merge(ArrayList<T> left, ArrayList<T> right){
+	public ArrayList<T> merge(ArrayList<T> left, ArrayList<T> right){
 		ArrayList<T> merged = new ArrayList<T>();
 
 		while(left.size() != 0 || right.size() != 0){
