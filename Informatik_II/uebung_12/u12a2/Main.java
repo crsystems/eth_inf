@@ -24,7 +24,7 @@ eine Million werte scheint auf meinem System bei 2 Threads zu liegen.
 
 
 public class Main {
-	public static void main(String[] args) throws InterruptedException{
+	public static void main(String[] args){
 		
 		ArrayList<Long> times = new ArrayList<Long>();
 
