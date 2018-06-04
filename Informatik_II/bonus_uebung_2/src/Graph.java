@@ -54,6 +54,7 @@ public class Graph {
 	this.initDijkstra(originName);
 
 	IRoute route = (IRoute) new Route(origin);
+	System.out.println(destination.getDistance() + "\n" + destination.getPredecessor() + "\n" + destination.getPredecessor().getPredecessor());
 	ArrayList<ICity> tmp_route = new ArrayList<ICity>();
 	ICity cur = destination;
 	
@@ -67,12 +68,6 @@ public class Graph {
 		route.addConnectionToRoute(tmp_route.get(i).getConnection(tmp_route.get(i-1).getName()));
 	}
 	
-
-
-
-
-
-
         return route;
     }
 
@@ -127,12 +122,12 @@ public class Graph {
 	Collection<ICity> cts = cities.values();
 	Iterator<ICity> it = cts.iterator();
 
-	ICity cur_check = null;
+	Connection cur_check = null;
 
 	ArrayList<String> known = new ArrayList<String>();
 	known.add(origin);
 
-	Iterator<ICity> tmp = current.getConnections().iterator();
+	Iterator<Connection> tmp = current.getConnections().iterator();
 
 	while(tmp.hasNext()){
 		cur_check = tmp.next();
@@ -144,18 +139,23 @@ public class Graph {
 		}
 	}
 
-	it.remove(current);
+	ICity old = current;
+	//it.remove(current);
 
 	while(it.hasNext()){
-		current = it.hasNext();
+		current = it.next();
 		
-		Iterator<ICity> tmp = current.getConnections().iterator();
+		if(current.equals(known)){
+			continue;
+		}
 
-		while(tmp.hasNext()){
-			cur_check = tmp.next();
+		Iterator<Connection> tmp2 = current.getConnections().iterator();
+
+		while(tmp2.hasNext()){
+			cur_check = tmp2.next();
 			if(!known.contains(cur_check.getDestination().getName())){
 				if((current.getDistance() + cur_check.getDistance()) < cur_check.getDestination().getDistance()){
-					cur_check.getDestination().setDistance((current.getDistance + cur_check.getDistance()));
+					cur_check.getDestination().setDistance((current.getDistance() + cur_check.getDistance()));
 					cur_check.getDestination().setPredecessor(current);
 				}
 			}
