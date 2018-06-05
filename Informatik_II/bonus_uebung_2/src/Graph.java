@@ -64,9 +64,17 @@ public class Graph {
 	}
 
 	tmp_route.add(origin);
-	for(int i = tmp_route.size()-1; i > 0; i--){
-		route.addConnectionToRoute(tmp_route.get(i).getConnection(tmp_route.get(i-1).getName()));
+
+	for(int i = tmp_route.size()-2; i > 0; i--){
+		System.out.println("----------- " + tmp_route.get(i));
 	}
+
+	for(int i = tmp_route.size()-2; i > 0; i--){
+		route.addConnectionToRoute(tmp_route.get(i).getConnection(tmp_route.get(i-1).getName()));
+		System.out.println("Trying to add: " + tmp_route.get(i));
+	}
+	
+	route.addConnectionToRoute(tmp_route.get(0).getConnection(destinationName));
 	
         return route;
     }

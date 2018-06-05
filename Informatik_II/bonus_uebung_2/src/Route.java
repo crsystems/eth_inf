@@ -19,6 +19,7 @@ public class Route implements IRoute {
 	*/
 	public void addConnectionToRoute(Connection connection){
 		this.route.add(connection);
+		System.out.println("Added connection to route: " + connection);
 	}
 
 	/**
@@ -63,13 +64,14 @@ public class Route implements IRoute {
 	@Override
 	public String toString(){
 		StringBuffer str = new StringBuffer();
-		if(route.size() == 0){
+			if(route.get(0) == null || route.size() == 0){
 			return "No Route.";
 		}
 		
 		str.append(origin.getName());
 		
 		for(int i = 0; i < route.size(); i++){
+			System.out.println("Appending: " + route.get(i).getDestination());
 			str.append(", ");
 			str.append(route.get(i).getDestination().getName());
 		}
