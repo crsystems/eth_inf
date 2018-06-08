@@ -47,14 +47,18 @@ public class Graph {
 	ICity origin = cities.get(originName);
 	ICity destination = cities.get(destinationName);
 
-	if(origin.equals(destination)){
+	if(origin == null){
+		throw new IllegalArgumentException("Origin is not a valid city");
+	}else if(destination == null){
+		throw new IllegalArgumentException("Destination is not a valid city");
+	}else if(origin.equals(destination)){
 		return (IRoute) new Route(origin);
 	}
 
 	this.initDijkstra(originName);
 
 	IRoute route = (IRoute) new Route(origin);
-	System.out.println(destination.getDistance() + "\n" + destination.getPredecessor() + "\n" + destination.getPredecessor().getPredecessor());
+	//System.out.println(destination.getDistance() + "\n" + destination.getPredecessor() + "\n" + destination.getPredecessor().getPredecessor());
 	ArrayList<ICity> tmp_route = new ArrayList<ICity>();
 	ICity cur = destination;
 	
@@ -63,19 +67,28 @@ public class Graph {
 		cur = cur.getPredecessor();
 	}
 
+	if(tmp_route.size() == 0){
+		throw new NoRouteFoundException("No route was found");
+	}
+
 	tmp_route.add(origin);
 
-	for(int i = tmp_route.size()-2; i > 0; i--){
-		System.out.println("----------- " + tmp_route.get(i));
+	for(int i = tmp_route.size()-2; i >= 0; i--){
+		//System.out.println("----------- " + tmp_route.get(i));
 	}
 
-	for(int i = tmp_route.size()-2; i > 0; i--){
-		route.addConnectionToRoute(tmp_route.get(i).getConnection(tmp_route.get(i-1).getName()));
-		System.out.println("Trying to add: " + tmp_route.get(i));
+	for(int i = tmp_route.size()-1; i > 0; i--){
+		if(i > 1){
+			route.addConnectionToRoute(tmp_route.get(i).getConnection(tmp_route.get(i-1).getName()));
+			//System.out.println("Trying to add: " + tmp_route.get(i-1).getName() + " index used is: " + i);
+		}else{
+			route.addConnectionToRoute(tmp_route.get(1).getConnection(destinationName));
+		}
+
 	}
 	
-	route.addConnectionToRoute(tmp_route.get(0).getConnection(destinationName));
-	
+	System.out.println(route);
+
         return route;
     }
 
@@ -117,6 +130,17 @@ public class Graph {
 	current.setDistance(0.0);
 	current.setPredecessor(null);
 
+
+	Collection<ICity> rst = cities.values();
+	Iterator<ICity> rm = rst.iterator();
+	
+	while(rm.hasNext()){
+		rm.next().reset();
+		//ICity cts = rm.next();
+		//System.out.println(cts.getName() + " distance: " + cts.getDistance());
+		//cts.reset();
+		//System.out.println(cts.getName() + " distance: " + cts.getDistance());
+	}
 	/*HashMap<String, ICity> tmp = new HashMap<String, ICity>();
 	tmp.putAll(cities);
 
@@ -151,8 +175,8 @@ public class Graph {
 	//it.remove(current);
 
 	while(it.hasNext()){
-		current = it.next();
-		
+		current = it.next();	
+
 		if(current.equals(known)){
 			continue;
 		}

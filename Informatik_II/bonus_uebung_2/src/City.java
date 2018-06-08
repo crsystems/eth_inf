@@ -5,7 +5,7 @@ import java.util.List;
 public class City implements ICity {
     
 	private String name;
-	private ArrayList<Connection> connections = new ArrayList<Connection>();
+	private ArrayList<Connection> connections;
 	private double distance;
 	private ICity predecessor;
 
@@ -13,6 +13,7 @@ public class City implements ICity {
         	this.name = name;
 		this.distance = Double.MAX_VALUE;
 		this.predecessor = null;
+		this.connections = new ArrayList<Connection>();
     	}
 
     	/**
@@ -30,7 +31,9 @@ public class City implements ICity {
      	* @param con die neue Verbindung
      	*/
     	public void addConnection(Connection con){
-		connections.add(con);
+		if(!connections.contains(con)){
+			connections.add(con);
+		}
 	}
 
     	/**
@@ -41,9 +44,8 @@ public class City implements ICity {
      	* @return die Verbindung zur gegebenen Stadt. Null falls keine Verbindung existiert.
      	*/
     	public Connection getConnection(String destination){
-		ICity tmp = (ICity) new City(destination);
 		for(int i = 0; i < connections.size(); i++){
-			if(tmp.equals(connections.get(i))){
+			if(connections.get(i).getDestination().getName().equals(destination)){
 				return connections.get(i);
 			}
 		}

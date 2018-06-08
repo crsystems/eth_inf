@@ -6,7 +6,11 @@ public class Main {
         Graph graph = GraphBuilder.buildGraphFromFile("./files/Cities.csv");
  	//System.out.println(graph.getCity("Zurich").getName());
         IRoute r = graph.calculateShortestPath("Lausanne", "Sankt Gallen");
-        System.out.println(r);
+        
+	System.out.println(r);
+        r = graph.calculateShortestPath("Bellinzona", "Bern");
+	
+	System.out.println(r);
     }
 
 }
