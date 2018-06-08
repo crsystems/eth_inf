@@ -16,6 +16,22 @@ public class Graph {
      */
     private HashMap<String, ICity> cities = new HashMap<>();
 
+    private String last_origin = new String();
+
+
+    private void setup(String origin){
+	    if(!origin.equals(last_origin)){
+		    Collection<ICity> ct = cities.values();
+		    Iterator<ICity> it = ct.iterator();
+
+		    while(it.hasNext()){
+			    cities.get(it.next().getName()).reset();
+		    }
+		    last_origin = origin;
+	    }
+    }
+
+
     public ICity getCity(String name) {
         if (cities.containsKey(name)) {
             return cities.get(name);
@@ -47,6 +63,8 @@ public class Graph {
 	ICity origin = cities.get(originName);
 	ICity destination = cities.get(destinationName);
 
+	this.setup(originName);
+
 	if(origin == null){
 		throw new IllegalArgumentException("Origin is not a valid city");
 	}else if(destination == null){
@@ -57,13 +75,24 @@ public class Graph {
 
 	this.initDijkstra(originName);
 
+	
+	Collection<ICity> ct = cities.values();
+	Iterator<ICity> it = ct.iterator();
+
+	while(it.hasNext()){
+		ICity tmp = it.next();
+		System.out.println(tmp + " distance: " + tmp.getDistance() );
+	}
+
+
 	IRoute route = (IRoute) new Route(origin);
-	//System.out.println(destination.getDistance() + "\n" + destination.getPredecessor() + "\n" + destination.getPredecessor().getPredecessor());
+	//System.out.println(destination.getDistance() + "\n" + destination.getPredecessor());
 	ArrayList<ICity> tmp_route = new ArrayList<ICity>();
 	ICity cur = destination;
 	
 	while(cur.getPredecessor() != null){
 		tmp_route.add(cur);
+		System.out.println(cur);
 		cur = cur.getPredecessor();
 	}
 
@@ -116,9 +145,6 @@ public class Graph {
 		return (IRoute) new Route(origin);
 	}
 
-
-
-
         return null;
     }
 
@@ -134,14 +160,14 @@ public class Graph {
 	Collection<ICity> rst = cities.values();
 	Iterator<ICity> rm = rst.iterator();
 	
-	while(rm.hasNext()){
+	/*while(rm.hasNext()){
 		rm.next().reset();
 		//ICity cts = rm.next();
 		//System.out.println(cts.getName() + " distance: " + cts.getDistance());
 		//cts.reset();
 		//System.out.println(cts.getName() + " distance: " + cts.getDistance());
 	}
-	/*HashMap<String, ICity> tmp = new HashMap<String, ICity>();
+	HashMap<String, ICity> tmp = new HashMap<String, ICity>();
 	tmp.putAll(cities);
 
 	tmp.remove(origin);

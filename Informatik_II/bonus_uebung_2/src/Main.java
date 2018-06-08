@@ -5,10 +5,10 @@ public class Main {
         //IDE
         Graph graph = GraphBuilder.buildGraphFromFile("./files/Cities.csv");
  	//System.out.println(graph.getCity("Zurich").getName());
-        IRoute r = graph.calculateShortestPath("Lausanne", "Sankt Gallen");
+        IRoute r = graph.calculateShortestPath("Locarno", "Basel");
         
 	System.out.println(r);
-        r = graph.calculateShortestPath("Bellinzona", "Bern");
+        r = graph.calculateShortestPath("Locarno", "Zürich");
 	
 	System.out.println(r);
     }
