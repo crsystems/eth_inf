@@ -30,7 +30,7 @@ public class Graph {
 			    cities.get(it.next().getName()).reset();
 		    }
 		    this.last_origin = origin;
-		    this,last_limit = limit;
+		    this.last_limit = limit;
 		    this.initDijkstra(origin, limit);
 	    }
     }
