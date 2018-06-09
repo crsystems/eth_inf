@@ -19,7 +19,6 @@ public class Route implements IRoute {
 	*/
 	public void addConnectionToRoute(Connection connection){
 		this.route.add(connection);
-		//System.out.println("Added connection to route: " + connection.getDestination());
 	}
 
 	/**
@@ -63,14 +62,6 @@ public class Route implements IRoute {
 	*/
 	@Override
 	public String toString(){
-		//System.out.println("Route length: " + route.size());	//
-
-		/*for(int i = 0; i < route.size(); i++){			//
-			//System.out.println(route.get(i).getDestination().getName()); //
-			System.out.println(route.get(i));	//
-		}*/			//
-
-
 
 		StringBuffer str = new StringBuffer();
 		
@@ -79,23 +70,18 @@ public class Route implements IRoute {
 		}
 		
 		str.append(origin.getName());
-		//System.out.println("_tostr_ Origin: " + origin);	//
 
 		for(int i = 0; i < route.size(); i++){
-		//	System.out.println("_tostr_ Appending: " + route.get(i).getDestination().getName()); //
 			str.append(", ");
 			str.append(route.get(i).getDestination().getName());
 		}
 		
 		str.append("; distance: ");
 		
-		
 		double dist = 0.0;
 		for(int i = 0; i < route.size(); i++){
 			dist += route.get(i).getDistance();
 		}
-
-		//System.out.println("Distance: " + dist);	//
 
 		str.append(dist);
 		str.append(" km.");

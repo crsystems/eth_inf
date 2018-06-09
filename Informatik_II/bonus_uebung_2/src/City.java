@@ -31,6 +31,7 @@ public class City implements ICity {
      	* @param con die neue Verbindung
      	*/
     	public void addConnection(Connection con){
+		//not permitting duplicates
 		if(!connections.contains(con)){
 			connections.add(con);
 		}
