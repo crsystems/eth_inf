@@ -4,12 +4,7 @@ public class Main {
 	//Graph graph = GraphBuilder.buildGraphFromFile("./files/Cities.csv");
         //IDE
         Graph graph = GraphBuilder.buildGraphFromFile("./files/Cities.csv");
- 	//System.out.println(graph.getCity("Zurich").getName());
-        IRoute r = graph.calculateShortestPath("Basel", "Zurich");
-        
-	System.out.println(r);
-        r = graph.calculateShortestPath("Locarno", "Zurich");
-	
+        IRoute r = graph.calculateShortestPath("Lausanne", "Schaffhausen");
 	System.out.println(r);
     }
 

@@ -77,6 +77,13 @@ public class Graph {
 	//setting up the cities with the help of the Dijkstra algorithm and an virtually infinte distance limit per connection
 	this.setup(originName, Double.MAX_VALUE);
 
+	Iterator<ICity> derp = cities.values().iterator();
+	System.out.println("\n\nOrigin: " + originName);
+	while(derp.hasNext()){
+		ICity herp = derp.next();
+		System.out.println(herp.getName() + ": " + herp.getDistance());
+	}
+	
 	IRoute route = (IRoute) new Route(origin);
 	ArrayList<ICity> tmp_route = new ArrayList<ICity>();
 	ICity cur = destination;
@@ -178,6 +185,7 @@ public class Graph {
      */
     private void initDijkstra(String origin, double limit){
 
+
 	ICity current = cities.get(origin);
 	
 	//setting up the origin
@@ -193,41 +201,35 @@ public class Graph {
 	//iterator over the connections of the origin
 	Iterator<Connection> tmp = current.getConnections().iterator();
 
+	ArrayList<ICity> queue = new ArrayList<ICity>();
+	
 	//checking every connection that origin has 
 	while(tmp.hasNext()){
 		cur_check = tmp.next();
-		//if the distance of the the connection is smaller than the distance variable in the destination city, replace the
-		//values and set the predecessor accordingly
-		//this will always be the case for the origin node
-		if(cur_check.getDistance() < cur_check.getDestination().getDistance() && cur_check.getDistance() <= limit){
-			cur_check.getDestination().setDistance(cur_check.getDistance());
-			cur_check.getDestination().setPredecessor(current);
+		if(cur_check.getDistance() <= limit){
+			queue.add(cur_check.getDestination());
+			//if the distance of the the connection is smaller than the distance variable in the destination city, replace the
+			//values and set the predecessor accordingly
+			//this will always be the case for the origin node
+			if(cur_check.getDistance() < cur_check.getDestination().getDistance()){
+				cur_check.getDestination().setDistance(cur_check.getDistance());
+				cur_check.getDestination().setPredecessor(current);
+			}
 		}
 	}
 
-	//know origin is "known" as all connections were checked
+
+	//now origin is "known" as all connections were checked
 	//as distance is the same in both directions further checking is unnecessary
 	known.add(origin);
 	
-	while(current != null){
+	while(queue.size() != 0){
 		
-		//finding the next possible city via an iterator over all of them
-		Iterator<ICity> nxt = cities.values().iterator();
-		while(nxt.hasNext()){
-			ICity test = nxt.next();
-			//if we find a city that was given a value and is not in the known array, we take that as our new city
-			if(!known.contains(test.getName()) && test.getDistance() < Double.MAX_VALUE){
-					current = cities.get(test.getName());
-					break;
-			}else{
-				current = null;
-			}
-		}
+		current = queue.remove(0);
 		
-		//ugly method to exit the while loop id no city was found (so Dijkstra is finished)
-		if(current == null){
-			break;
-		}
+		//known.add(current.getName());
+		System.out.println("current name: " + current.getName() + "	current distance: " + current.getDistance());
+		//System.out.println(queue);
 
 		//get all the connections of our current city in an iterator again
 		Iterator<Connection> tmp2 = current.getConnections().iterator();
@@ -235,25 +237,29 @@ public class Graph {
 		//iterate over them all
 		while(tmp2.hasNext()){
 			cur_check = tmp2.next();
-			//if the destination of the current connection is not known
-			if(!known.contains(cur_check.getDestination().getName())){
-				
-				System.out.println("Connection from " + current + " to " + cur_check.getDestination().getName() + ".");
-				System.out.println("Current distance: " + cur_check.getDestination().getDistance() + " 	vs.	" + (cur_check.getDistance() + current.getDistance()));
-				//and if the distance to the current city plus the distance of the connection is smaller than
-				//the distance of the destination city
-				//AND
-				//if the distance of the connection is smaller than the limit
-				//set the distance and the predecessor of the destination accordingly
-				if((current.getDistance() + cur_check.getDistance()) < cur_check.getDestination().getDistance() && cur_check.getDistance() <= limit){
-					cur_check.getDestination().setDistance((current.getDistance() + cur_check.getDistance()));
-					cur_check.getDestination().setPredecessor(current);
+			if(cur_check.getDistance() <= limit){
+				if(!queue.contains(cur_check.getDestination()) && !known.contains(cur_check.getDestination().getName())){			
+					queue.add(cur_check.getDestination());
 				}
+
+				//if the destination of the current connection is not known
+				//if(!known.contains(cur_check.getDestination().getName())){
+					//and if the distance to the current city plus the distance of the connection is smaller than
+					//the distance of the destination city
+					//AND
+					//if the distance of the connection is smaller than the limit
+					//set the distance and the predecessor of the destination accordingly
+					if((current.getDistance() + cur_check.getDistance()) < cur_check.getDestination().getDistance() && cur_check.getDistance() <= limit){
+						cur_check.getDestination().setDistance((current.getDistance() + cur_check.getDistance()));
+						cur_check.getDestination().setPredecessor(current);
+					}
+				//}
 			}
 		}
 
-		//after all connections were checked, this city is fully initialized and can be ignored next time
+
 		known.add(current.getName());
+
 	}
     }
 }
