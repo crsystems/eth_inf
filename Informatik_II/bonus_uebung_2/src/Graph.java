@@ -77,13 +77,6 @@ public class Graph {
 	//setting up the cities with the help of the Dijkstra algorithm and an virtually infinte distance limit per connection
 	this.setup(originName, Double.MAX_VALUE);
 
-	Iterator<ICity> derp = cities.values().iterator();
-	System.out.println("\n\nOrigin: " + originName);
-	while(derp.hasNext()){
-		ICity herp = derp.next();
-		System.out.println(herp.getName() + ": " + herp.getDistance());
-	}
-	
 	IRoute route = (IRoute) new Route(origin);
 	ArrayList<ICity> tmp_route = new ArrayList<ICity>();
 	ICity cur = destination;
@@ -184,8 +177,6 @@ public class Graph {
      * @param limit	the distance limit per connection. Set this to Double.MAX_VALUE to disable limiting
      */
     private void initDijkstra(String origin, double limit){
-
-
 	ICity current = cities.get(origin);
 	
 	//setting up the origin
@@ -227,10 +218,6 @@ public class Graph {
 		
 		current = queue.remove(0);
 		
-		//known.add(current.getName());
-		System.out.println("current name: " + current.getName() + "	current distance: " + current.getDistance());
-		//System.out.println(queue);
-
 		//get all the connections of our current city in an iterator again
 		Iterator<Connection> tmp2 = current.getConnections().iterator();
 
@@ -242,24 +229,14 @@ public class Graph {
 					queue.add(cur_check.getDestination());
 				}
 
-				//if the destination of the current connection is not known
-				//if(!known.contains(cur_check.getDestination().getName())){
-					//and if the distance to the current city plus the distance of the connection is smaller than
-					//the distance of the destination city
-					//AND
-					//if the distance of the connection is smaller than the limit
-					//set the distance and the predecessor of the destination accordingly
-					if((current.getDistance() + cur_check.getDistance()) < cur_check.getDestination().getDistance() && cur_check.getDistance() <= limit){
-						cur_check.getDestination().setDistance((current.getDistance() + cur_check.getDistance()));
-						cur_check.getDestination().setPredecessor(current);
-					}
-				//}
+				if((current.getDistance() + cur_check.getDistance()) < cur_check.getDestination().getDistance() && cur_check.getDistance() <= limit){
+					cur_check.getDestination().setDistance((current.getDistance() + cur_check.getDistance()));
+					cur_check.getDestination().setPredecessor(current);
+				}
 			}
 		}
 
-
 		known.add(current.getName());
-
 	}
     }
 }
